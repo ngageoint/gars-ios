@@ -1,0 +1,9 @@
+jazzy \
+  --author NGA \
+  --author_url https://www.nga.mil \
+  --github_url https://github.com/ngageoint/gars-ios \
+  --github-file-prefix https://github.com/ngageoint/gars-ios/tree/1.0.0 \
+  --build-tool-arguments -scheme,gars-ios \
+  --module-version 1.0.0 \
+  --module gars-ios \
+  --output docs/docs/api
