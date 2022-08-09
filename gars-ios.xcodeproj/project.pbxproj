@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		04281FF62899BD7F00026382 /* gars_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04281FED2899BD7F00026382 /* gars_ios.framework */; };
 		04281FFC2899BD7F00026382 /* gars_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 04281FF02899BD7F00026382 /* gars_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0B7C2DAABE127728CFB6C6CB /* Pods_gars_ios_gars_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5142358B0030EE5EEA5031 /* Pods_gars_ios_gars_iosTests.framework */; };
-		50B9B0B1E086FD5500D745EB /* Pods_gars_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EBD562A1B4FB562124BAC61 /* Pods_gars_ios.framework */; };
+		0428203428A28C4800026382 /* GARSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428203328A28C4800026382 /* GARSConstants.swift */; };
+		0428203728A298A600026382 /* GridLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428203628A298A600026382 /* GridLine.swift */; };
+		3E31C5C3A1BED7E561A734E9 /* Pods_gars_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119573E9C3501EC325BEC3E4 /* Pods_gars_ios.framework */; };
+		C711E585DD24F5A13CA3528A /* Pods_gars_ios_gars_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68849929730CAFC68EFDCDAE /* Pods_gars_ios_gars_iosTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,14 +29,16 @@
 		04281FED2899BD7F00026382 /* gars_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = gars_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04281FF02899BD7F00026382 /* gars_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gars_ios.h; sourceTree = "<group>"; };
 		04281FF52899BD7F00026382 /* gars-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gars-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0428203328A28C4800026382 /* GARSConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GARSConstants.swift; sourceTree = "<group>"; };
+		0428203628A298A600026382 /* GridLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLine.swift; sourceTree = "<group>"; };
+		119573E9C3501EC325BEC3E4 /* Pods_gars_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gars_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3295100FC695C71079321C28 /* Pods-gars-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-ios.release.xcconfig"; path = "Target Support Files/Pods-gars-ios/Pods-gars-ios.release.xcconfig"; sourceTree = "<group>"; };
 		43F6D866DB2D2299E81BE1D4 /* Pods-gars-ios-gars-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-ios-gars-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-gars-ios-gars-iosTests/Pods-gars-ios-gars-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		449E8DB981E6CC3061EE3115 /* Pods-gars-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-iosTests.release.xcconfig"; path = "Target Support Files/Pods-gars-iosTests/Pods-gars-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		4E9E5249E3C73D594F06BCAF /* Pods-gars-ios-gars-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-ios-gars-iosTests.release.xcconfig"; path = "Target Support Files/Pods-gars-ios-gars-iosTests/Pods-gars-ios-gars-iosTests.release.xcconfig"; sourceTree = "<group>"; };
-		4EBD562A1B4FB562124BAC61 /* Pods_gars_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gars_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68849929730CAFC68EFDCDAE /* Pods_gars_ios_gars_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gars_ios_gars_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92880B6C95E606EF80A8E4FC /* Pods-gars-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-gars-iosTests/Pods-gars-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E851D60405F0F6192D5968E0 /* Pods-gars-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-ios.debug.xcconfig"; path = "Target Support Files/Pods-gars-ios/Pods-gars-ios.debug.xcconfig"; sourceTree = "<group>"; };
-		FB5142358B0030EE5EEA5031 /* Pods_gars_ios_gars_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gars_ios_gars_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50B9B0B1E086FD5500D745EB /* Pods_gars_ios.framework in Frameworks */,
+				3E31C5C3A1BED7E561A734E9 /* Pods_gars_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,7 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04281FF62899BD7F00026382 /* gars_ios.framework in Frameworks */,
-				0B7C2DAABE127728CFB6C6CB /* Pods_gars_ios_gars_iosTests.framework in Frameworks */,
+				C711E585DD24F5A13CA3528A /* Pods_gars_ios_gars_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				04281FF02899BD7F00026382 /* gars_ios.h */,
+				0428203328A28C4800026382 /* GARSConstants.swift */,
+				0428203528A2988F00026382 /* features */,
 			);
 			path = "gars-ios";
 			sourceTree = "<group>";
@@ -93,11 +99,19 @@
 			path = "gars-iosTests";
 			sourceTree = "<group>";
 		};
+		0428203528A2988F00026382 /* features */ = {
+			isa = PBXGroup;
+			children = (
+				0428203628A298A600026382 /* GridLine.swift */,
+			);
+			path = features;
+			sourceTree = "<group>";
+		};
 		6F74DC420EB3232760614D11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4EBD562A1B4FB562124BAC61 /* Pods_gars_ios.framework */,
-				FB5142358B0030EE5EEA5031 /* Pods_gars_ios_gars_iosTests.framework */,
+				119573E9C3501EC325BEC3E4 /* Pods_gars_ios.framework */,
+				68849929730CAFC68EFDCDAE /* Pods_gars_ios_gars_iosTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -156,7 +170,7 @@
 				04281FF12899BD7F00026382 /* Sources */,
 				04281FF22899BD7F00026382 /* Frameworks */,
 				04281FF32899BD7F00026382 /* Resources */,
-				581772FF1A5C069C867FD975 /* [CP] Embed Pods Frameworks */,
+				BCAE3C0A4C5A4D2D98CF5CD1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -246,23 +260,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		581772FF1A5C069C867FD975 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-gars-ios-gars-iosTests/Pods-gars-ios-gars-iosTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-gars-ios-gars-iosTests/Pods-gars-ios-gars-iosTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-gars-ios-gars-iosTests/Pods-gars-ios-gars-iosTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B993E02F2C99A4D637D2A1D2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -285,6 +282,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BCAE3C0A4C5A4D2D98CF5CD1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-gars-ios-gars-iosTests/Pods-gars-ios-gars-iosTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-gars-ios-gars-iosTests/Pods-gars-ios-gars-iosTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-gars-ios-gars-iosTests/Pods-gars-ios-gars-iosTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -292,6 +306,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0428203428A28C4800026382 /* GARSConstants.swift in Sources */,
+				0428203728A298A600026382 /* GridLine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
