@@ -9,7 +9,7 @@ import Foundation
 import grid_ios
 
 /**
- * Line between two points
+ * Global Area Reference System utilities
  */
 public class GARSUtils {
 

@@ -19,6 +19,12 @@
 		04F520F728A3CB72004C6D8C /* BandLettersRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F520F628A3CB72004C6D8C /* BandLettersRange.swift */; };
 		04F520F928A3EE12004C6D8C /* GridRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F520F828A3EE12004C6D8C /* GridRange.swift */; };
 		04F520FB28A42A05004C6D8C /* GARS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F520FA28A42A05004C6D8C /* GARS.swift */; };
+		04F520FD28A44B51004C6D8C /* ZoomGrids.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F520FC28A44B51004C6D8C /* ZoomGrids.swift */; };
+		04F520FF28A44D33004C6D8C /* GridLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F520FE28A44D33004C6D8C /* GridLabel.swift */; };
+		04F5210128A44E5A004C6D8C /* GARSLabeler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5210028A44E5A004C6D8C /* GARSLabeler.swift */; };
+		04F5210328A44EAB004C6D8C /* GridLabeler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5210228A44EAB004C6D8C /* GridLabeler.swift */; };
+		04F5210528A44F27004C6D8C /* Grids.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5210428A44F27004C6D8C /* Grids.swift */; };
+		04F5210728A44F61004C6D8C /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5210628A44F61004C6D8C /* Grid.swift */; };
 		3E31C5C3A1BED7E561A734E9 /* Pods_gars_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119573E9C3501EC325BEC3E4 /* Pods_gars_ios.framework */; };
 		C711E585DD24F5A13CA3528A /* Pods_gars_ios_gars_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68849929730CAFC68EFDCDAE /* Pods_gars_ios_gars_iosTests.framework */; };
 /* End PBXBuildFile section */
@@ -47,6 +53,12 @@
 		04F520F628A3CB72004C6D8C /* BandLettersRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandLettersRange.swift; sourceTree = "<group>"; };
 		04F520F828A3EE12004C6D8C /* GridRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridRange.swift; sourceTree = "<group>"; };
 		04F520FA28A42A05004C6D8C /* GARS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GARS.swift; sourceTree = "<group>"; };
+		04F520FC28A44B51004C6D8C /* ZoomGrids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomGrids.swift; sourceTree = "<group>"; };
+		04F520FE28A44D33004C6D8C /* GridLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLabel.swift; sourceTree = "<group>"; };
+		04F5210028A44E5A004C6D8C /* GARSLabeler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GARSLabeler.swift; sourceTree = "<group>"; };
+		04F5210228A44EAB004C6D8C /* GridLabeler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLabeler.swift; sourceTree = "<group>"; };
+		04F5210428A44F27004C6D8C /* Grids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grids.swift; sourceTree = "<group>"; };
+		04F5210628A44F61004C6D8C /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		119573E9C3501EC325BEC3E4 /* Pods_gars_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gars_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3295100FC695C71079321C28 /* Pods-gars-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-ios.release.xcconfig"; path = "Target Support Files/Pods-gars-ios/Pods-gars-ios.release.xcconfig"; sourceTree = "<group>"; };
 		43F6D866DB2D2299E81BE1D4 /* Pods-gars-ios-gars-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-ios-gars-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-gars-ios-gars-iosTests/Pods-gars-ios-gars-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,8 +145,14 @@
 			children = (
 				04F520F628A3CB72004C6D8C /* BandLettersRange.swift */,
 				04F520F228A2FDC0004C6D8C /* BandNumberRange.swift */,
+				04F5210028A44E5A004C6D8C /* GARSLabeler.swift */,
+				04F5210628A44F61004C6D8C /* Grid.swift */,
+				04F520FE28A44D33004C6D8C /* GridLabel.swift */,
+				04F5210228A44EAB004C6D8C /* GridLabeler.swift */,
 				04F520F828A3EE12004C6D8C /* GridRange.swift */,
+				04F5210428A44F27004C6D8C /* Grids.swift */,
 				04F520EB28A2BFD3004C6D8C /* GridType.swift */,
+				04F520FC28A44B51004C6D8C /* ZoomGrids.swift */,
 			);
 			path = grid;
 			sourceTree = "<group>";
@@ -347,15 +365,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F520FD28A44B51004C6D8C /* ZoomGrids.swift in Sources */,
 				04F520EC28A2BFD3004C6D8C /* GridType.swift in Sources */,
 				04F520EF28A2F015004C6D8C /* GARSProperties.swift in Sources */,
+				04F5210328A44EAB004C6D8C /* GridLabeler.swift in Sources */,
 				04F520F528A3C48E004C6D8C /* GARSUtils.swift in Sources */,
 				0428203428A28C4800026382 /* GARSConstants.swift in Sources */,
 				04F520FB28A42A05004C6D8C /* GARS.swift in Sources */,
+				04F520FF28A44D33004C6D8C /* GridLabel.swift in Sources */,
+				04F5210728A44F61004C6D8C /* Grid.swift in Sources */,
 				04F520F328A2FDC0004C6D8C /* BandNumberRange.swift in Sources */,
+				04F5210128A44E5A004C6D8C /* GARSLabeler.swift in Sources */,
 				04F520F928A3EE12004C6D8C /* GridRange.swift in Sources */,
 				04F520F728A3CB72004C6D8C /* BandLettersRange.swift in Sources */,
 				0428203728A298A600026382 /* GridLine.swift in Sources */,
+				04F5210528A44F27004C6D8C /* Grids.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
