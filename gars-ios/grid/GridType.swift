@@ -80,7 +80,7 @@ public enum GridType: Int, CaseIterable {
      *            value in degrees
      * @return precision grid type
      */
-    public static func precision(value: Double) -> GridType {
+    public static func precision(_ value: Double) -> GridType {
         let precision: GridType
         if (value.truncatingRemainder(dividingBy: TWENTY_DEGREE.precision()) == 0) {
             precision = TWENTY_DEGREE
@@ -107,7 +107,7 @@ public enum GridType: Int, CaseIterable {
      *            grid type
      * @return grid types less precise
      */
-    public static func lessPrecise(type: GridType) -> [GridType] {
+    public static func lessPrecise(_ type: GridType) -> [GridType] {
         let cases = self.allCases
         let index = cases.firstIndex(of: type)
         return Array(cases.prefix(upTo: index!))
@@ -120,7 +120,7 @@ public enum GridType: Int, CaseIterable {
      *            grid type
      * @return grid types more precise
      */
-    public static func morePrecise(type: GridType) -> [GridType] {
+    public static func morePrecise(_ type: GridType) -> [GridType] {
         let cases = self.allCases
         let index = cases.firstIndex(of: type)
         return Array(cases.suffix(from: index! + 1))

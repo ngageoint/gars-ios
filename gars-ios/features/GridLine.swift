@@ -26,8 +26,8 @@ public class GridLine: Line {
      * @param point2
      *            second point
      */
-    public override init(point1: GridPoint, point2: GridPoint) {
-        super.init(point1: point1, point2: point2)
+    public override init(_ point1: GridPoint, _ point2: GridPoint) {
+        super.init(point1, point2)
     }
     
     /**
@@ -40,8 +40,8 @@ public class GridLine: Line {
      * @param gridType
      *            line grid type
      */
-    public convenience init(point1: GridPoint, point2: GridPoint, gridType: GridType?) {
-        self.init(point1: point1, point2: point2)
+    public convenience init(_ point1: GridPoint, _ point2: GridPoint, _ gridType: GridType?) {
+        self.init(point1, point2)
         self.gridType = gridType
     }
     
@@ -51,8 +51,8 @@ public class GridLine: Line {
      * @param line
      *            line to copy
      */
-    public override init(line: Line) {
-        super.init(line: line)
+    public override init(_ line: Line) {
+        super.init(line)
     }
     
     /**
@@ -63,8 +63,8 @@ public class GridLine: Line {
      * @param gridType
      *            line grid type
      */
-    public convenience init(line: Line, gridType: GridType?) {
-        self.init(line: line)
+    public convenience init(_ line: Line, _ gridType: GridType?) {
+        self.init(line)
         self.gridType = gridType
     }
     
@@ -74,8 +74,8 @@ public class GridLine: Line {
      * @param gridLine
      *            line to copy
      */
-    public convenience init(gridLine: GridLine) {
-        self.init(line: gridLine, gridType: gridLine.gridType)
+    public convenience init(_ gridLine: GridLine) {
+        self.init(gridLine, gridLine.gridType)
     }
     
     /**
@@ -88,7 +88,7 @@ public class GridLine: Line {
     }
     
     public override func mutableCopy(with zone: NSZone? = nil) -> Any {
-        return GridLine(gridLine: self)
+        return GridLine(self)
     }
     
     public override func encode(with coder: NSCoder) {
@@ -105,7 +105,7 @@ public class GridLine: Line {
         super.init(coder: coder)
     }
     
-    public func isEqual(gridLine: GridLine?) -> Bool {
+    public func isEqual(_ gridLine: GridLine?) -> Bool {
         if(self == gridLine) {
             return true
         }
@@ -124,7 +124,7 @@ public class GridLine: Line {
             return false
         }
         
-        return isEqual(gridLine: object as? GridLine)
+        return isEqual(object as? GridLine)
     }
 
     public override var hash: Int {

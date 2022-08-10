@@ -26,7 +26,7 @@ public class GARSProperties: GridProperties {
     /**
      * Singleton instance
      */
-    private static let _instance = GARSProperties(bundle: BUNDLE_NAME, name: PROPERTIES_NAME)
+    private static let _instance = GARSProperties(BUNDLE_NAME, PROPERTIES_NAME)
     
     public static var instance: GARSProperties {
         get {
@@ -40,8 +40,8 @@ public class GARSProperties: GridProperties {
      *  @param bundle  bundle name
      *  @param name    properties name
      */
-    public override init(bundle: String, name: String) {
-        super.init(bundle: bundle, name: name)
+    public override init(_ bundle: String, _ name: String) {
+        super.init(bundle, name)
     }
     
 }
