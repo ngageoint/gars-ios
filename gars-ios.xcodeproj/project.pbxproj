@@ -26,6 +26,8 @@
 		04F5210528A44F27004C6D8C /* Grids.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5210428A44F27004C6D8C /* Grids.swift */; };
 		04F5210728A44F61004C6D8C /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5210628A44F61004C6D8C /* Grid.swift */; };
 		04F5210B28A53150004C6D8C /* GARSTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5210A28A53150004C6D8C /* GARSTestCase.swift */; };
+		04F5210D28A566B6004C6D8C /* GARSUtilsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5210C28A566B6004C6D8C /* GARSUtilsTestCase.swift */; };
+		04F5210F28A570DB004C6D8C /* ReadmeTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5210E28A570DB004C6D8C /* ReadmeTestCase.swift */; };
 		3E31C5C3A1BED7E561A734E9 /* Pods_gars_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119573E9C3501EC325BEC3E4 /* Pods_gars_ios.framework */; };
 		C711E585DD24F5A13CA3528A /* Pods_gars_ios_gars_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68849929730CAFC68EFDCDAE /* Pods_gars_ios_gars_iosTests.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +63,8 @@
 		04F5210428A44F27004C6D8C /* Grids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grids.swift; sourceTree = "<group>"; };
 		04F5210628A44F61004C6D8C /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		04F5210A28A53150004C6D8C /* GARSTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GARSTestCase.swift; path = "gars-ios/grid/GARSTestCase.swift"; sourceTree = SOURCE_ROOT; };
+		04F5210C28A566B6004C6D8C /* GARSUtilsTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GARSUtilsTestCase.swift; path = "gars-ios/grid/GARSUtilsTestCase.swift"; sourceTree = SOURCE_ROOT; };
+		04F5210E28A570DB004C6D8C /* ReadmeTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReadmeTestCase.swift; path = "gars-ios/grid/ReadmeTestCase.swift"; sourceTree = SOURCE_ROOT; };
 		119573E9C3501EC325BEC3E4 /* Pods_gars_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gars_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3295100FC695C71079321C28 /* Pods-gars-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-ios.release.xcconfig"; path = "Target Support Files/Pods-gars-ios/Pods-gars-ios.release.xcconfig"; sourceTree = "<group>"; };
 		43F6D866DB2D2299E81BE1D4 /* Pods-gars-ios-gars-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-ios-gars-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-gars-ios-gars-iosTests/Pods-gars-ios-gars-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				04F5210A28A53150004C6D8C /* GARSTestCase.swift */,
+				04F5210C28A566B6004C6D8C /* GARSUtilsTestCase.swift */,
+				04F5210E28A570DB004C6D8C /* ReadmeTestCase.swift */,
 			);
 			path = "gars-iosTests";
 			sourceTree = "<group>";
@@ -391,6 +397,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F5210F28A570DB004C6D8C /* ReadmeTestCase.swift in Sources */,
+				04F5210D28A566B6004C6D8C /* GARSUtilsTestCase.swift in Sources */,
 				04F5210B28A53150004C6D8C /* GARSTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

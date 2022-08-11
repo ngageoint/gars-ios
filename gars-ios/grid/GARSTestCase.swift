@@ -5,10 +5,8 @@
 //  Created by Brian Osborn on 8/11/22.
 //
 
-import Foundation
-
 import XCTest
-import grid_ios
+@testable import grid_ios
 @testable import gars_ios
 
 /**
