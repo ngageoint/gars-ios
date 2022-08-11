@@ -14,6 +14,16 @@ import grid_ios
 public class GARS: Hashable {
     
     /**
+     * GARS string pattern
+     */
+    private static let garsPattern = "^(\\d{3})([A-HJ-NP-Z]{2})(?:([1-4])([1-9])?)?$"
+    
+    /**
+     * GARS regular expression
+     */
+    private static let garsExpression = try! NSRegularExpression(pattern: garsPattern, options: .caseInsensitive)
+    
+    /**
      * Longitudinal band number
      */
     public let longitude: Int
@@ -153,7 +163,22 @@ public class GARS: Hashable {
      */
     public static func isGARS(_ gars: String) -> Bool {
         let garsValue = removeSpaces(gars)
-        return false // TODO
+        let matches = garsExpression.matches(in: garsValue, range: NSMakeRange(0, garsValue.count))
+        var isGars = matches.count > 0
+        if (isGars) {
+            let match = matches[0]
+            let garsString = garsValue as NSString
+            let longitude = Int(garsString.substring(with: match.range(at: 1)))!
+            isGars = longitude >= GARSConstants.MIN_BAND_NUMBER
+                && longitude <= GARSConstants.MAX_BAND_NUMBER
+            if (isGars) {
+                let latitude = garsString.substring(with: match.range(at: 2)).uppercased()
+                let latitudeValue = GARSUtils.bandValue(latitude)
+                isGars = latitudeValue >= GARSConstants.MIN_BAND_LETTERS_NUMBER
+                    && latitudeValue <= GARSConstants.MAX_BAND_LETTERS_NUMBER
+            }
+        }
+        return isGars
     }
     
     /**
@@ -165,6 +190,18 @@ public class GARS: Hashable {
      */
     private static func removeSpaces(_ value: String) -> String {
         return value.replacingOccurrences(of: "\\s", with: "", options: .regularExpression)
+    }
+    
+    /**
+     * Encodes a point as a GARS string
+     *
+     * @param point
+     *            point
+     * @return GARS
+     */
+    public static func from(_ point: GridPoint) -> GARS {
+        let pointDegrees = point.toDegrees()
+        return from(pointDegrees.longitude, pointDegrees.latitude)
     }
     
     /**
@@ -216,7 +253,48 @@ public class GARS: Hashable {
      * @return GARS
      */
     public static func parse(_ gars: String) -> GARS {
-        return GARS(0, "AA", 0, 0) // TODO
+        let garsValue = removeSpaces(gars)
+        let matches = garsExpression.matches(in: garsValue, range: NSMakeRange(0, garsValue.count))
+        if (matches.count <= 0) {
+            preconditionFailure("Invalid GARS: \(gars)")
+        }
+        
+        let match = matches[0]
+        let garsString = garsValue as NSString
+        
+        let longitude = Int(garsString.substring(with: match.range(at: 1)))!
+        if (longitude < GARSConstants.MIN_BAND_NUMBER
+            || longitude > GARSConstants.MAX_BAND_NUMBER) {
+            preconditionFailure("Invalid GARS longitude: \(longitude), GARS: \(gars)")
+        }
+        
+        let latitude = garsString.substring(with: match.range(at: 2)).uppercased()
+        let latitudeValue = GARSUtils.bandValue(latitude)
+        if (latitudeValue < GARSConstants.MIN_BAND_LETTERS_NUMBER
+            || latitudeValue > GARSConstants.MAX_BAND_LETTERS_NUMBER) {
+            preconditionFailure("Invalid GARS latitude: \(latitude), GARS: \(gars)")
+        }
+        
+        var quadrant = GARSConstants.DEFAULT_QUADRANT
+        var keypad = GARSConstants.DEFAULT_KEYPAD
+        
+        let quadrantMatch = match.range(at: 3)
+        if (quadrantMatch.length > 0) {
+            
+            let quadrantValue = garsString.substring(with: quadrantMatch)
+            quadrant = Int(quadrantValue)!
+            
+            let keypadMatch = match.range(at: 4)
+            if (keypadMatch.length > 0) {
+             
+                let keypadValue = garsString.substring(with: keypadMatch)
+                keypad = Int(keypadValue)!
+                
+            }
+            
+        }
+
+        return GARS(longitude, latitude, quadrant, keypad)
     }
     
     /**
@@ -227,7 +305,25 @@ public class GARS: Hashable {
      * @return grid type precision
      */
     public static func precision(_ gars: String) -> GridType {
-        return GridType.THIRTY_MINUTE // TODO
+        let garsValue = removeSpaces(gars)
+        let matches = garsExpression.matches(in: garsValue, range: NSMakeRange(0, garsValue.count))
+        if (matches.count <= 0) {
+            preconditionFailure("Invalid GARS: \(gars)")
+        }
+        
+        let match = matches[0]
+        
+        var precision: GridType
+        
+        if (match.range(at: 4).length > 0) {
+            precision = GridType.FIVE_MINUTE
+        } else if (match.range(at: 3).length > 0) {
+            precision = GridType.FIFTEEN_MINUTE
+        } else{
+            precision = GridType.THIRTY_MINUTE
+        }
+        
+        return precision
     }
     
 }
