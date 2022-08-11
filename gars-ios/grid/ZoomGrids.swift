@@ -11,7 +11,7 @@ import grid_ios
 /**
  * Zoom Level Matching Grids
  */
-public class ZoomGrids: BaseZoomGrids {
+public class ZoomGrids: BaseZoomGrids, Sequence {
     
     /**
      * Initialize
@@ -34,6 +34,11 @@ public class ZoomGrids: BaseZoomGrids {
             type = (grids.first as! Grid).type
         }
         return type
+    }
+    
+    public func makeIterator() -> IndexingIterator<[Grid]> {
+        let value: [Grid] = grids.map { $0 as! Grid }
+        return value.makeIterator()
     }
     
 }
