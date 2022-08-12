@@ -126,4 +126,8 @@ public enum GridType: Int, CaseIterable {
         return Array(cases.suffix(from: index! + 1))
     }
     
+    var name: String {
+        get { return String(describing: self) }
+    }
+    
 }
