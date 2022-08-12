@@ -126,8 +126,8 @@ public class Grid: BaseGrid {
      *            grid type
      * @return grid type line color
      */
-    public func color(_ gridType: GridType) -> CLRColor? {
-        var color: CLRColor? = nil
+    public func color(_ gridType: GridType) -> UIColor? {
+        var color: UIColor? = nil
         let style = style(gridType)
         if (style != nil) {
             color = style!.color
@@ -146,7 +146,7 @@ public class Grid: BaseGrid {
      * @param color
      *            grid line color
      */
-    public func setColor(_ gridType: GridType, _ color: CLRColor) {
+    public func setColor(_ gridType: GridType, _ color: UIColor) {
         getOrCreateStyle(gridType).color = color
     }
     

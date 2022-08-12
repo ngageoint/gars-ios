@@ -28,7 +28,7 @@ public class GridLabeler: Labeler {
      * Initialize
      */
     public init() {
-        super.init(true, 0, nil, CLRColor.black(), GridLabeler.DEFAULT_TEXT_SIZE, GridLabeler.DEFAULT_BUFFER)
+        super.init(true, 0, nil, UIColor.black, GridLabeler.DEFAULT_TEXT_SIZE, GridLabeler.DEFAULT_BUFFER)
     }
     
     /**
@@ -39,7 +39,7 @@ public class GridLabeler: Labeler {
      * @param color
      *            label color
      */
-    public convenience init(_ minZoom: Int, _ color: CLRColor) {
+    public convenience init(_ minZoom: Int, _ color: UIColor) {
         self.init(minZoom, color, GridLabeler.DEFAULT_TEXT_SIZE)
     }
     
@@ -53,7 +53,7 @@ public class GridLabeler: Labeler {
      * @param textSize
      *            label text size
      */
-    public convenience init(_ minZoom: Int, _ color: CLRColor, _ textSize: Double) {
+    public convenience init(_ minZoom: Int, _ color: UIColor, _ textSize: Double) {
         self.init(minZoom, color, textSize, GridLabeler.DEFAULT_BUFFER)
     }
         
@@ -70,7 +70,7 @@ public class GridLabeler: Labeler {
      *            grid edge buffer (greater than or equal to 0.0 and less than
      *            0.5)
      */
-    public init(_ minZoom: Int, _ color: CLRColor, _ textSize: Double, _ buffer: Double) {
+    public init(_ minZoom: Int, _ color: UIColor, _ textSize: Double, _ buffer: Double) {
         super.init(true, minZoom, nil, color, textSize, buffer)
     }
     
@@ -84,7 +84,7 @@ public class GridLabeler: Labeler {
      * @param color
      *            label color
      */
-    public convenience init(_ minZoom: Int, _ maxZoom: Int?, _ color: CLRColor) {
+    public convenience init(_ minZoom: Int, _ maxZoom: Int?, _ color: UIColor) {
         self.init(minZoom, maxZoom, color, GridLabeler.DEFAULT_TEXT_SIZE)
     }
     
@@ -100,7 +100,7 @@ public class GridLabeler: Labeler {
      * @param textSize
      *            label text size
      */
-    public convenience init(_ minZoom: Int, _ maxZoom: Int?, _ color: CLRColor, _ textSize: Double) {
+    public convenience init(_ minZoom: Int, _ maxZoom: Int?, _ color: UIColor, _ textSize: Double) {
         self .init(minZoom, maxZoom, color, textSize, GridLabeler.DEFAULT_BUFFER)
     }
     
@@ -119,7 +119,7 @@ public class GridLabeler: Labeler {
      *            grid edge buffer (greater than or equal to 0.0 and less than
      *            0.5)
      */
-    public init(_ minZoom: Int, _ maxZoom: Int?, _ color: CLRColor, _ textSize: Double, _ buffer: Double) {
+    public init(_ minZoom: Int, _ maxZoom: Int?, _ color: UIColor, _ textSize: Double, _ buffer: Double) {
         super.init(true, minZoom, maxZoom, color, textSize, buffer)
     }
     
@@ -135,7 +135,7 @@ public class GridLabeler: Labeler {
      * @param color
      *            label color
      */
-    public convenience init(_ enabled: Bool, _ minZoom: Int, _ maxZoom: Int?, _ color: CLRColor) {
+    public convenience init(_ enabled: Bool, _ minZoom: Int, _ maxZoom: Int?, _ color: UIColor) {
         self.init(enabled, minZoom, maxZoom, color, GridLabeler.DEFAULT_TEXT_SIZE)
     }
 
@@ -153,7 +153,7 @@ public class GridLabeler: Labeler {
      * @param textSize
      *            label text size
      */
-    public convenience init(_ enabled: Bool, _ minZoom: Int, _ maxZoom: Int?, _ color: CLRColor, _ textSize: Double) {
+    public convenience init(_ enabled: Bool, _ minZoom: Int, _ maxZoom: Int?, _ color: UIColor, _ textSize: Double) {
         self.init(enabled, minZoom, maxZoom, color, textSize, GridLabeler.DEFAULT_BUFFER)
     }
 
@@ -174,7 +174,7 @@ public class GridLabeler: Labeler {
      *            grid edge buffer (greater than or equal to 0.0 and less than
      *            0.5)
      */
-    public init(_ enabled: Bool, _ minZoom: Int, _ maxZoom: Int?, _ color: CLRColor, _ textSize: Double, _ buffer: Double) {
+    public init(_ enabled: Bool, _ minZoom: Int, _ maxZoom: Int?, _ color: UIColor, _ textSize: Double, _ buffer: Double) {
         super.init(enabled, minZoom, maxZoom, color, textSize, buffer)
     }
     
