@@ -14,16 +14,6 @@ import grid_ios
 public class ZoomGrids: BaseZoomGrids, Sequence {
     
     /**
-     * Initialize
-     *
-     * @param zoom
-     *            zoom level
-     */
-    public override init(_ zoom: Int) {
-        super.init(zoom)
-    }
-    
-    /**
      * Get the grid type precision
      *
      * @return grid type precision

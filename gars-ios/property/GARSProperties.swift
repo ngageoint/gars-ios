@@ -34,14 +34,4 @@ public class GARSProperties: GridProperties {
         }
     }
     
-    /**
-     *  Initialize
-     *
-     *  @param bundle  bundle name
-     *  @param name    properties name
-     */
-    public override init(_ bundle: String, _ name: String) {
-        super.init(bundle, name)
-    }
-    
 }
