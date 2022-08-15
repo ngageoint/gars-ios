@@ -26,12 +26,12 @@ public class GARSProperties: GridProperties {
     /**
      * Singleton instance
      */
-    private static let _instance = GARSProperties(BUNDLE_NAME, PROPERTIES_NAME)
+    private static let _instance = GARSProperties(GARSProperties.self, BUNDLE_NAME, PROPERTIES_NAME)
     
     public static var instance: GARSProperties {
         get {
             return _instance
         }
     }
-    
+
 }

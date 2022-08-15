@@ -208,7 +208,7 @@ public class Grids: BaseGrids {
                 if (color == nil) {
                     let styleColor = style!.color
                     if (styleColor != nil) {
-                        color = styleColor!.mutableCopy() as? UIColor
+                        color = styleColor!.copy() as? UIColor
                     }
                 }
                 if (width == nil) {
@@ -399,6 +399,481 @@ public class Grids: BaseGrids {
         grid(type).linesMaxZoom = maxZoom
     }
     
-    // TODO
+    /**
+     * Set all grid line colors
+     *
+     * @param color
+     *            grid line color
+     */
+    public func setAllColors(_ color: UIColor) {
+        setColor(GridType.allCases, color)
+    }
+
+    /**
+     * Set the grid line color for the grid types
+     *
+     * @param types
+     *            grid types
+     * @param color
+     *            grid line color
+     */
+    public func setColor(_ types: [GridType], _ color: UIColor) {
+        for type in types {
+            setColor(type, color)
+        }
+    }
+    
+    /**
+     * Set the grid line color for the grid type
+     *
+     * @param type
+     *            grid type
+     * @param color
+     *            grid line color
+     */
+    public func setColor(_ type: GridType, _ color: UIColor) {
+        grid(type).color = color
+    }
+    
+    /**
+     * Set all grid line widths
+     *
+     * @param width
+     *            grid line width
+     */
+    public func setAllWidths(_ width: Double) {
+        setWidth(GridType.allCases, width)
+    }
+
+    /**
+     * Set the grid line width for the grid types
+     *
+     * @param types
+     *            grid types
+     * @param width
+     *            grid line width
+     */
+    public func setWidth(_ types: [GridType], _ width: Double) {
+        for type in types {
+            setWidth(type, width)
+        }
+    }
+
+    /**
+     * Set the grid line width for the grid type
+     *
+     * @param type
+     *            grid type
+     * @param width
+     *            grid line width
+     */
+    public func setWidth(_ type: GridType, _ width: Double) {
+        grid(type).width = width
+    }
+    
+    /**
+     * Delete propagated styles
+     */
+    public func deletePropagatedStyles() {
+        deletePropagatedStyles(GridType.allCases)
+    }
+
+    /**
+     * Delete propagated styles for the grid types
+     *
+     * @param types
+     *            grid types
+     */
+    public func deletePropagatedStyles(_ types: [GridType]) {
+        for type in types {
+            deletePropagatedStyles(type)
+        }
+    }
+
+    /**
+     * Delete propagated styles for the grid type
+     *
+     * @param type
+     *            grid type
+     */
+    public func deletePropagatedStyles(_ type: GridType) {
+        grid(type).clearPrecisionStyles()
+    }
+    
+    /**
+     * Set the grid type precision line color for the grid types
+     *
+     * @param types
+     *            grid types
+     * @param precisionType
+     *            precision grid type
+     * @param color
+     *            grid line color
+     */
+    public func setColor(_ types: [GridType], _ precisionType: GridType, _ color: UIColor) {
+        for type in types {
+            setColor(type, precisionType, color)
+        }
+    }
+
+    /**
+     * Set the grid type precision line colors for the grid type
+     *
+     * @param type
+     *            grid type
+     * @param precisionTypes
+     *            precision grid types
+     * @param color
+     *            grid line color
+     */
+    public func setColor(_ type: GridType, _ precisionTypes: [GridType], _ color: UIColor) {
+        for precisionType in precisionTypes {
+            setColor(type, precisionType, color)
+        }
+    }
+
+    /**
+     * Set the grid type precision line color for the grid type
+     *
+     * @param type
+     *            grid type
+     * @param precisionType
+     *            precision grid type
+     * @param color
+     *            grid line color
+     */
+    public func setColor(_ type: GridType, _ precisionType: GridType, _ color: UIColor) {
+        grid(type).setColor(precisionType, color)
+    }
+    
+    /**
+     * Set the grid type precision line width for the grid types
+     *
+     * @param types
+     *            grid types
+     * @param precisionType
+     *            precision grid type
+     * @param width
+     *            grid line width
+     */
+    public func setWidth(_ types: [GridType], _ precisionType: GridType, _ width: Double) {
+        for type in types {
+            setWidth(type, precisionType, width)
+        }
+    }
+
+    /**
+     * Set the grid type precision line widths for the grid type
+     *
+     * @param type
+     *            grid type
+     * @param precisionTypes
+     *            precision grid types
+     * @param width
+     *            grid line width
+     */
+    public func setWidth(_ type: GridType, _ precisionTypes: [GridType], _ width: Double) {
+        for precisionType in precisionTypes {
+            setWidth(type, precisionType, width)
+        }
+    }
+
+    /**
+     * Set the grid type precision line width for the grid type
+     *
+     * @param type
+     *            grid type
+     * @param precisionType
+     *            precision grid type
+     * @param width
+     *            grid line width
+     */
+    public func setWidth(_ type: GridType, _ precisionType: GridType, _ width: Double) {
+        grid(type).setWidth(precisionType, width)
+    }
+    
+    /**
+     * Get the labeler for the grid type
+     *
+     * @param type
+     *            grid type
+     * @return labeler or null
+     */
+    public func labeler(_ type: GridType) -> GridLabeler? {
+        return grid(type).labeler()
+    }
+
+    /**
+     * Has a labeler for the grid type
+     *
+     * @param type
+     *            grid type
+     * @return true if has labeler
+     */
+    public func hasLabeler(_ type: GridType) -> Bool {
+        return grid(type).hasLabeler()
+    }
+
+    /**
+     * Set the labeler for the grid type
+     *
+     * @param type
+     *            grid type
+     * @param labeler
+     *            labeler
+     */
+    public func setLabeler(_ type: GridType, _ labeler: GridLabeler) {
+        grid(type).setLabeler(labeler)
+    }
+    
+    /**
+     * Disable all grid labelers
+     */
+    public func disableAllLabelers() {
+        disableLabelers(GridType.allCases)
+    }
+
+    /**
+     * Enable the labelers for the grid types
+     *
+     * @param types
+     *            grid types
+     */
+    public func enableLabelers(_ types: [GridType]) {
+        for type in types {
+            enableLabeler(type)
+        }
+    }
+
+    /**
+     * Disable the labelers for the grid types
+     *
+     * @param types
+     *            grid types
+     */
+    public func disableLabelers(_ types: [GridType]) {
+        for type in types {
+            disableLabeler(type)
+        }
+    }
+
+    /**
+     * Is a labeler enabled for the grid type
+     *
+     * @param type
+     *            grid type
+     * @return true if labeler enabled
+     */
+    public func isLabelerEnabled(_ type: GridType) -> Bool {
+        let labeler = labeler(type)
+        return labeler != nil && labeler!.enabled
+    }
+
+    /**
+     * Enable the grid type labeler
+     *
+     * @param type
+     *            grid type
+     */
+    public func enableLabeler(_ type: GridType) {
+        requiredLabeler(type).enabled = true
+    }
+
+    /**
+     * Disable the grid type labeler
+     *
+     * @param type
+     *            grid type
+     */
+    public func disableLabeler(_ type: GridType) {
+        let labeler = labeler(type)
+        if (labeler != nil) {
+            labeler!.enabled = false
+        }
+    }
+    
+    /**
+     * Get the labeler for the grid type
+     *
+     * @param type
+     *            grid type
+     * @return labeler or null
+     */
+    private func requiredLabeler(_ type: GridType) -> GridLabeler {
+        let labeler = labeler(type)
+        if (labeler == nil) {
+            preconditionFailure("Grid type does not have a labeler: \(type)")
+        }
+        return labeler!
+    }
+    
+    /**
+     * Set the grid minimum zoom
+     *
+     * @param type
+     *            grid type
+     * @param minZoom
+     *            minimum zoom
+     */
+    public func setLabelMinZoom(_ type: GridType, minZoom: Int) {
+        let labeler = requiredLabeler(type)
+        labeler.minZoom = minZoom
+        let maxZoom = labeler.maxZoom
+        if (maxZoom != nil && maxZoom! < minZoom) {
+            labeler.maxZoom = minZoom
+        }
+    }
+
+    /**
+     * Set the grid maximum zoom
+     *
+     * @param type
+     *            grid type
+     * @param maxZoom
+     *            maximum zoom
+     */
+    public func setLabelMaxZoom(_ type: GridType, maxZoom: Int?) {
+        let labeler = requiredLabeler(type)
+        labeler.maxZoom = maxZoom
+        if (maxZoom != nil && labeler.minZoom > maxZoom!) {
+            labeler.minZoom = maxZoom!
+        }
+    }
+
+    /**
+     * Set the grid zoom range
+     *
+     * @param type
+     *            grid type
+     * @param minZoom
+     *            minimum zoom
+     * @param maxZoom
+     *            maximum zoom
+     */
+    public func setLabelZoomRange(_ type: GridType, minZoom: Int, maxZoom: Int?) {
+        let labeler = requiredLabeler(type)
+        if (maxZoom != nil && maxZoom! < minZoom) {
+            preconditionFailure("Min zoom '\(minZoom)' can not be larger than max zoom '\(maxZoom!)'")
+        }
+        labeler.minZoom = minZoom
+        labeler.maxZoom = maxZoom
+    }
+
+    /**
+     * Set the label grid edge buffer for the grid types
+     *
+     * @param types
+     *            grid types
+     * @param buffer
+     *            label buffer (greater than or equal to 0.0 and less than 0.5)
+     */
+    public func setLabelBuffer(_ types: [GridType], _ buffer: Double) {
+        for type in types {
+            setLabelBuffer(type, buffer)
+        }
+    }
+
+    /**
+     * Get the label grid edge buffer
+     *
+     * @param type
+     *            grid type
+     * @return label buffer (greater than or equal to 0.0 and less than 0.5)
+     */
+    public func getLabelBuffer(_ type: GridType) -> Double {
+        return grid(type).labelBuffer()
+    }
+
+    /**
+     * Set the label grid edge buffer
+     *
+     * @param type
+     *            grid type
+     * @param buffer
+     *            label buffer (greater than or equal to 0.0 and less than 0.5)
+     */
+    public func setLabelBuffer(_ type: GridType, _ buffer: Double) {
+        requiredLabeler(type).buffer = buffer
+    }
+    
+    /**
+     * Set all label colors
+     *
+     * @param color
+     *            label color
+     */
+    public func setAllLabelColors(_ color: UIColor) {
+        for grid in typeGrids.values {
+            if (grid.hasLabeler()) {
+                setLabelColor(grid.type, color)
+            }
+        }
+    }
+
+    /**
+     * Set the label color for the grid types
+     *
+     * @param types
+     *            grid types
+     * @param color
+     *            label color
+     */
+    public func setLabelColor(_ types: [GridType], _ color: UIColor) {
+        for type in types {
+            setLabelColor(type, color)
+        }
+    }
+
+    /**
+     * Set the label color
+     *
+     * @param type
+     *            grid type
+     * @param color
+     *            label color
+     */
+    public func setLabelColor(_ type: GridType, _ color: UIColor) {
+        requiredLabeler(type).color = color
+    }
+    
+    /**
+     * Set all label text sizes
+     *
+     * @param textSize
+     *            label text size
+     */
+    public func setAllLabelTextSizes(_ textSize: Double) {
+        for grid in typeGrids.values {
+            if (grid.hasLabeler()) {
+                setLabelTextSize(grid.type, textSize)
+            }
+        }
+    }
+
+    /**
+     * Set the label text size for the grid types
+     *
+     * @param types
+     *            grid types
+     * @param textSize
+     *            label text size
+     */
+    public func setLabelTextSize(_ types: [GridType], _ textSize: Double) {
+        for type in types {
+            setLabelTextSize(type, textSize)
+        }
+    }
+
+    /**
+     * Set the label text size
+     *
+     * @param type
+     *            grid type
+     * @param textSize
+     *            label text size
+     */
+    public func setLabelTextSize(_ type: GridType, _ textSize: Double) {
+        requiredLabeler(type).textSize = textSize
+    }
     
 }
