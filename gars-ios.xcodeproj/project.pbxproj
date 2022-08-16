@@ -28,6 +28,9 @@
 		04F5210B28A53150004C6D8C /* GARSTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5210A28A53150004C6D8C /* GARSTestCase.swift */; };
 		04F5210D28A566B6004C6D8C /* GARSUtilsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5210C28A566B6004C6D8C /* GARSUtilsTestCase.swift */; };
 		04F5210F28A570DB004C6D8C /* ReadmeTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5210E28A570DB004C6D8C /* ReadmeTestCase.swift */; };
+		04F5211328AAD9EB004C6D8C /* GARSTileOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5211228AAD9EB004C6D8C /* GARSTileOverlay.swift */; };
+		04F5211528ABB2C2004C6D8C /* TileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5211428ABB2C2004C6D8C /* TileUtils.swift */; };
+		04F5211728ABCB6D004C6D8C /* TileDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5211628ABCB6D004C6D8C /* TileDraw.swift */; };
 		3E31C5C3A1BED7E561A734E9 /* Pods_gars_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119573E9C3501EC325BEC3E4 /* Pods_gars_ios.framework */; };
 		C711E585DD24F5A13CA3528A /* Pods_gars_ios_gars_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68849929730CAFC68EFDCDAE /* Pods_gars_ios_gars_iosTests.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +68,9 @@
 		04F5210A28A53150004C6D8C /* GARSTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GARSTestCase.swift; path = "gars-ios/grid/GARSTestCase.swift"; sourceTree = SOURCE_ROOT; };
 		04F5210C28A566B6004C6D8C /* GARSUtilsTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GARSUtilsTestCase.swift; path = "gars-ios/grid/GARSUtilsTestCase.swift"; sourceTree = SOURCE_ROOT; };
 		04F5210E28A570DB004C6D8C /* ReadmeTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReadmeTestCase.swift; path = "gars-ios/grid/ReadmeTestCase.swift"; sourceTree = SOURCE_ROOT; };
+		04F5211228AAD9EB004C6D8C /* GARSTileOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GARSTileOverlay.swift; sourceTree = "<group>"; };
+		04F5211428ABB2C2004C6D8C /* TileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileUtils.swift; sourceTree = "<group>"; };
+		04F5211628ABCB6D004C6D8C /* TileDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TileDraw.swift; sourceTree = "<group>"; };
 		119573E9C3501EC325BEC3E4 /* Pods_gars_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gars_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3295100FC695C71079321C28 /* Pods-gars-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-ios.release.xcconfig"; path = "Target Support Files/Pods-gars-ios/Pods-gars-ios.release.xcconfig"; sourceTree = "<group>"; };
 		43F6D866DB2D2299E81BE1D4 /* Pods-gars-ios-gars-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-ios-gars-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-gars-ios-gars-iosTests/Pods-gars-ios-gars-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +132,7 @@
 				0428203528A2988F00026382 /* features */,
 				04F520EA28A2BFB4004C6D8C /* grid */,
 				04F520ED28A2EFC3004C6D8C /* property */,
+				04F5211128AAD9C4004C6D8C /* tile */,
 				04F520F028A2F4FA004C6D8C /* gars.plist */,
 			);
 			path = "gars-ios";
@@ -172,6 +179,16 @@
 				04F520EE28A2F015004C6D8C /* GARSProperties.swift */,
 			);
 			path = property;
+			sourceTree = "<group>";
+		};
+		04F5211128AAD9C4004C6D8C /* tile */ = {
+			isa = PBXGroup;
+			children = (
+				04F5211228AAD9EB004C6D8C /* GARSTileOverlay.swift */,
+				04F5211628ABCB6D004C6D8C /* TileDraw.swift */,
+				04F5211428ABB2C2004C6D8C /* TileUtils.swift */,
+			);
+			path = tile;
 			sourceTree = "<group>";
 		};
 		6F74DC420EB3232760614D11 /* Frameworks */ = {
@@ -382,13 +399,16 @@
 				04F520F528A3C48E004C6D8C /* GARSUtils.swift in Sources */,
 				0428203428A28C4800026382 /* GARSConstants.swift in Sources */,
 				04F520FB28A42A05004C6D8C /* GARS.swift in Sources */,
+				04F5211728ABCB6D004C6D8C /* TileDraw.swift in Sources */,
 				04F520FF28A44D33004C6D8C /* GridLabel.swift in Sources */,
 				04F5210728A44F61004C6D8C /* Grid.swift in Sources */,
 				04F520F328A2FDC0004C6D8C /* BandNumberRange.swift in Sources */,
 				04F5210128A44E5A004C6D8C /* GARSLabeler.swift in Sources */,
 				04F520F928A3EE12004C6D8C /* GridRange.swift in Sources */,
 				04F520F728A3CB72004C6D8C /* BandLettersRange.swift in Sources */,
+				04F5211328AAD9EB004C6D8C /* GARSTileOverlay.swift in Sources */,
 				0428203728A298A600026382 /* GridLine.swift in Sources */,
+				04F5211528ABB2C2004C6D8C /* TileUtils.swift in Sources */,
 				04F5210528A44F27004C6D8C /* Grids.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

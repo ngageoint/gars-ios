@@ -876,4 +876,86 @@ public class Grids: BaseGrids {
         requiredLabeler(type).textSize = textSize
     }
     
+    /**
+     * Draw a tile with the dimensions and XYZ coordinate
+     *
+     * @param tileWidth  tile width
+     * @param tileHeight tile height
+     * @param x          x coordinate
+     * @param y          y coordinate
+     * @param zoom       zoom level
+     * @return image tile
+     */
+    public func drawTile(_ tileWidth: Int, _ tileHeight: Int, _ x: Int, _ y: Int, _ zoom: Int) -> UIImage? {
+        var image: UIImage? = nil
+        let zoomGrids = grids(zoom)
+        if (zoomGrids.hasGrids()) {
+            image = drawTile(GridTile(tileWidth, tileHeight, x, y, zoom), zoomGrids)
+        }
+        return image
+    }
+
+    /**
+     * Draw a tile with the dimensions and bounds
+     *
+     * @param tileWidth  tile width
+     * @param tileHeight tile height
+     * @param bounds     bounds
+     * @return image tile
+     */
+    public func drawTile(_ tileWidth: Int, _ tileHeight: Int, _ bounds: Bounds) -> UIImage? {
+        return drawTile(GridTile(tileWidth, tileHeight, bounds))
+    }
+
+    /**
+     * Draw the tile
+     *
+     * @param gridTile tile
+     * @return image tile
+     */
+    public func drawTile(_ gridTile: GridTile) -> UIImage? {
+        var image: UIImage? = nil
+        let zoomGrids = grids(gridTile.zoom)
+        if (zoomGrids.hasGrids()) {
+            image = drawTile(gridTile, zoomGrids)
+        }
+        return image
+    }
+
+    /**
+     * Draw the tile
+     *
+     * @param gridTile  tile
+     * @param zoomGrids zoom grids
+     * @return image tile
+     */
+    private func drawTile(_ gridTile: GridTile, _ zoomGrids: ZoomGrids) -> UIImage? {
+
+        UIGraphicsBeginImageContext(CGSize(width: CGFloat(gridTile.width), height: CGFloat(gridTile.height)))
+        let context = UIGraphicsGetCurrentContext()!
+        
+        // Draw from the top left
+        context.translateBy(x: 0, y: CGFloat(gridTile.height))
+        context.scaleBy(x: 1.0, y: -1.0)
+
+        for grid in zoomGrids {
+
+            let lines = grid.lines(gridTile)
+            if (lines != nil) {
+                TileDraw.drawLines(lines!, gridTile, grid, context)
+            }
+
+            let labels = grid.labels(gridTile)
+            if (labels != nil) {
+                TileDraw.drawLabels(labels!, grid.labelBuffer(), gridTile, grid)
+            }
+
+        }
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+    
 }
