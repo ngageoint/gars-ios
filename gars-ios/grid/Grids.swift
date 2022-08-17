@@ -715,7 +715,7 @@ public class Grids: BaseGrids {
      * @param minZoom
      *            minimum zoom
      */
-    public func setLabelMinZoom(_ type: GridType, minZoom: Int) {
+    public func setLabelMinZoom(_ type: GridType, _ minZoom: Int) {
         let labeler = requiredLabeler(type)
         labeler.minZoom = minZoom
         let maxZoom = labeler.maxZoom
@@ -732,7 +732,7 @@ public class Grids: BaseGrids {
      * @param maxZoom
      *            maximum zoom
      */
-    public func setLabelMaxZoom(_ type: GridType, maxZoom: Int?) {
+    public func setLabelMaxZoom(_ type: GridType, _ maxZoom: Int?) {
         let labeler = requiredLabeler(type)
         labeler.maxZoom = maxZoom
         if (maxZoom != nil && labeler.minZoom > maxZoom!) {
@@ -750,7 +750,7 @@ public class Grids: BaseGrids {
      * @param maxZoom
      *            maximum zoom
      */
-    public func setLabelZoomRange(_ type: GridType, minZoom: Int, maxZoom: Int?) {
+    public func setLabelZoomRange(_ type: GridType, _ minZoom: Int, _ maxZoom: Int?) {
         let labeler = requiredLabeler(type)
         if (maxZoom != nil && maxZoom! < minZoom) {
             preconditionFailure("Min zoom '\(minZoom)' can not be larger than max zoom '\(maxZoom!)'")
@@ -933,18 +933,14 @@ public class Grids: BaseGrids {
 
         UIGraphicsBeginImageContext(CGSize(width: CGFloat(gridTile.width), height: CGFloat(gridTile.height)))
         let context = UIGraphicsGetCurrentContext()!
-        
-        // Draw from the top left
-        context.translateBy(x: 0, y: CGFloat(gridTile.height))
-        context.scaleBy(x: 1.0, y: -1.0)
 
         for grid in zoomGrids {
-
+            
             let lines = grid.lines(gridTile)
             if (lines != nil) {
                 TileDraw.drawLines(lines!, gridTile, grid, context)
             }
-
+            
             let labels = grid.labels(gridTile)
             if (labels != nil) {
                 TileDraw.drawLabels(labels!, grid.labelBuffer(), gridTile, grid)

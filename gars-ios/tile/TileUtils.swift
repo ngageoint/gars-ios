@@ -78,8 +78,8 @@ public class TileUtils {
      *
      *  @return location coordinate
      */
-    public static func toCoordinate(_ point: MKMapPoint?) -> CLLocationCoordinate2D? {
-        return point?.coordinate
+    public static func toCoordinate(_ point: MKMapPoint) -> CLLocationCoordinate2D {
+        return point.coordinate
     }
     
     /**
@@ -89,13 +89,9 @@ public class TileUtils {
      *
      *  @return location coordinate
      */
-    public static func toCoordinate(_ point: GridPoint?) -> CLLocationCoordinate2D? {
-        var locationCoordinate: CLLocationCoordinate2D? = nil
-        if (point != nil) {
-            let pointDegrees = point!.toDegrees()
-            locationCoordinate = CLLocationCoordinate2DMake(pointDegrees.latitude, pointDegrees.longitude)
-        }
-        return locationCoordinate
+    public static func toCoordinate(_ point: GridPoint) -> CLLocationCoordinate2D {
+        let pointDegrees = point.toDegrees()
+        return CLLocationCoordinate2DMake(pointDegrees.latitude, pointDegrees.longitude)
     }
     
     /**
@@ -105,12 +101,8 @@ public class TileUtils {
      *
      *  @return map point
      */
-    public static func toMapPoint(_ coordinate: CLLocationCoordinate2D?) -> MKMapPoint? {
-        var mapPoint: MKMapPoint? = nil
-        if (coordinate != nil) {
-            mapPoint = MKMapPoint(coordinate!)
-        }
-        return mapPoint
+    public static func toMapPoint(_ coordinate: CLLocationCoordinate2D) -> MKMapPoint {
+        return MKMapPoint(coordinate)
     }
     
     /**
@@ -120,7 +112,7 @@ public class TileUtils {
      *
      *  @return map point
      */
-    public static func toMapPoint(_ point: GridPoint?) -> MKMapPoint? {
+    public static func toMapPoint(_ point: GridPoint) -> MKMapPoint {
         return toMapPoint(toCoordinate(point))
     }
     
@@ -131,12 +123,8 @@ public class TileUtils {
      *
      *  @return grid point
      */
-    public static func toGridPoint(_ coordinate: CLLocationCoordinate2D?) -> GridPoint? {
-        var gridPoint: GridPoint? = nil
-        if (coordinate != nil) {
-            gridPoint = GridPoint.degrees(coordinate!.longitude, coordinate!.latitude)
-        }
-        return gridPoint
+    public static func toGridPoint(_ coordinate: CLLocationCoordinate2D) -> GridPoint {
+        return GridPoint.degrees(coordinate.longitude, coordinate.latitude)
     }
     
     /**
@@ -146,7 +134,7 @@ public class TileUtils {
      *
      *  @return grid point
      */
-    public static func toGridPoint(_ point: MKMapPoint?) -> GridPoint? {
+    public static func toGridPoint(_ point: MKMapPoint) -> GridPoint {
         return toGridPoint(toCoordinate(point))
     }
     
