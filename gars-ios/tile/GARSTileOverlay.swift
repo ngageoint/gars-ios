@@ -6,6 +6,7 @@
 //
 
 import MapKit
+import grid_ios
 
 /**
  * GARS Tile Overlay

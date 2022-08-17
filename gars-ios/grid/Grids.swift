@@ -938,7 +938,7 @@ public class Grids: BaseGrids {
             
             let lines = grid.lines(gridTile)
             if (lines != nil) {
-                TileDraw.drawLines(lines!, gridTile, grid, context)
+                Grids.drawLines(lines!, gridTile, grid, context)
             }
             
             let labels = grid.labels(gridTile)
@@ -952,6 +952,28 @@ public class Grids: BaseGrids {
         UIGraphicsEndImageContext()
         
         return image
+    }
+    
+    /**
+     * Draw the lines on the tile
+     *
+     * @param lines  lines to draw
+     * @param tile   tile
+     * @param grid   grid
+     * @param context graphics context
+     */
+    public static func drawLines(_ lines: [GridLine], _ tile: GridTile, _ grid: Grid, _ context: CGContext) {
+        
+        for line in lines {
+
+            let gridType = line.gridType != nil ? line.gridType! : grid.type
+            let width = grid.width(gridType)
+            let color = grid.color(gridType)
+            
+            TileDraw.drawLine(line, tile, width, color, context)
+
+        }
+
     }
     
 }
