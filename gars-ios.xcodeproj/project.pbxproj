@@ -33,6 +33,7 @@
 		04F5214228AE50EB004C6D8C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5214128AE50EB004C6D8C /* ContentView.swift */; };
 		04F5214428AE50ED004C6D8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F5214328AE50ED004C6D8C /* Assets.xcassets */; };
 		04F5214728AE50ED004C6D8C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F5214628AE50ED004C6D8C /* Preview Assets.xcassets */; };
+		04F5214B28AE6843004C6D8C /* gars_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04281FED2899BD7F00026382 /* gars_ios.framework */; };
 		3C4D02AC93B567611301AF4B /* Pods_gars_ios_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AFABEFB265F4FCD511D677 /* Pods_gars_ios_app.framework */; };
 		3E31C5C3A1BED7E561A734E9 /* Pods_gars_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119573E9C3501EC325BEC3E4 /* Pods_gars_ios.framework */; };
 		C711E585DD24F5A13CA3528A /* Pods_gars_ios_gars_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68849929730CAFC68EFDCDAE /* Pods_gars_ios_gars_iosTests.framework */; };
@@ -112,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F5214B28AE6843004C6D8C /* gars_ios.framework in Frameworks */,
 				3C4D02AC93B567611301AF4B /* Pods_gars_ios_app.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
