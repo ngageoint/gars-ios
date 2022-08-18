@@ -9,4 +9,8 @@ target 'gars-ios' do
   target 'gars-iosTests' do
     inherit! :complete
   end
+
+  target 'app' do
+    inherit! :complete
+  end
 end

@@ -29,6 +29,11 @@
 		04F5210D28A566B6004C6D8C /* GARSUtilsTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5210C28A566B6004C6D8C /* GARSUtilsTestCase.swift */; };
 		04F5210F28A570DB004C6D8C /* ReadmeTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5210E28A570DB004C6D8C /* ReadmeTestCase.swift */; };
 		04F5211328AAD9EB004C6D8C /* GARSTileOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5211228AAD9EB004C6D8C /* GARSTileOverlay.swift */; };
+		04F5214028AE50EB004C6D8C /* appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5213F28AE50EB004C6D8C /* appApp.swift */; };
+		04F5214228AE50EB004C6D8C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F5214128AE50EB004C6D8C /* ContentView.swift */; };
+		04F5214428AE50ED004C6D8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F5214328AE50ED004C6D8C /* Assets.xcassets */; };
+		04F5214728AE50ED004C6D8C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F5214628AE50ED004C6D8C /* Preview Assets.xcassets */; };
+		3C4D02AC93B567611301AF4B /* Pods_gars_ios_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57AFABEFB265F4FCD511D677 /* Pods_gars_ios_app.framework */; };
 		3E31C5C3A1BED7E561A734E9 /* Pods_gars_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119573E9C3501EC325BEC3E4 /* Pods_gars_ios.framework */; };
 		C711E585DD24F5A13CA3528A /* Pods_gars_ios_gars_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68849929730CAFC68EFDCDAE /* Pods_gars_ios_gars_iosTests.framework */; };
 /* End PBXBuildFile section */
@@ -67,12 +72,20 @@
 		04F5210C28A566B6004C6D8C /* GARSUtilsTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GARSUtilsTestCase.swift; path = "gars-ios/grid/GARSUtilsTestCase.swift"; sourceTree = SOURCE_ROOT; };
 		04F5210E28A570DB004C6D8C /* ReadmeTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReadmeTestCase.swift; path = "gars-ios/grid/ReadmeTestCase.swift"; sourceTree = SOURCE_ROOT; };
 		04F5211228AAD9EB004C6D8C /* GARSTileOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GARSTileOverlay.swift; sourceTree = "<group>"; };
+		04F5213D28AE50EB004C6D8C /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04F5213F28AE50EB004C6D8C /* appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appApp.swift; sourceTree = "<group>"; };
+		04F5214128AE50EB004C6D8C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		04F5214328AE50ED004C6D8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04F5214628AE50ED004C6D8C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		119573E9C3501EC325BEC3E4 /* Pods_gars_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gars_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3295100FC695C71079321C28 /* Pods-gars-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-ios.release.xcconfig"; path = "Target Support Files/Pods-gars-ios/Pods-gars-ios.release.xcconfig"; sourceTree = "<group>"; };
 		43F6D866DB2D2299E81BE1D4 /* Pods-gars-ios-gars-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-ios-gars-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-gars-ios-gars-iosTests/Pods-gars-ios-gars-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		449E8DB981E6CC3061EE3115 /* Pods-gars-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-iosTests.release.xcconfig"; path = "Target Support Files/Pods-gars-iosTests/Pods-gars-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		4E9E5249E3C73D594F06BCAF /* Pods-gars-ios-gars-iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-ios-gars-iosTests.release.xcconfig"; path = "Target Support Files/Pods-gars-ios-gars-iosTests/Pods-gars-ios-gars-iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		57AFABEFB265F4FCD511D677 /* Pods_gars_ios_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gars_ios_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D58E6BA97BDC5648771260C /* Pods-gars-ios-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-ios-app.release.xcconfig"; path = "Target Support Files/Pods-gars-ios-app/Pods-gars-ios-app.release.xcconfig"; sourceTree = "<group>"; };
 		68849929730CAFC68EFDCDAE /* Pods_gars_ios_gars_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gars_ios_gars_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DA3F5E5DB70A8B01B8E6657 /* Pods-gars-ios-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-ios-app.debug.xcconfig"; path = "Target Support Files/Pods-gars-ios-app/Pods-gars-ios-app.debug.xcconfig"; sourceTree = "<group>"; };
 		92880B6C95E606EF80A8E4FC /* Pods-gars-iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-iosTests.debug.xcconfig"; path = "Target Support Files/Pods-gars-iosTests/Pods-gars-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E851D60405F0F6192D5968E0 /* Pods-gars-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gars-ios.debug.xcconfig"; path = "Target Support Files/Pods-gars-ios/Pods-gars-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +108,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		04F5213A28AE50EB004C6D8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C4D02AC93B567611301AF4B /* Pods_gars_ios_app.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -103,6 +124,7 @@
 			children = (
 				04281FEF2899BD7F00026382 /* gars-ios */,
 				04281FF92899BD7F00026382 /* gars-iosTests */,
+				04F5213E28AE50EB004C6D8C /* app */,
 				04281FEE2899BD7F00026382 /* Products */,
 				893E1AC857AF11139CB60595 /* Pods */,
 				6F74DC420EB3232760614D11 /* Frameworks */,
@@ -114,6 +136,7 @@
 			children = (
 				04281FED2899BD7F00026382 /* gars_ios.framework */,
 				04281FF52899BD7F00026382 /* gars-iosTests.xctest */,
+				04F5213D28AE50EB004C6D8C /* app.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,11 +208,31 @@
 			path = tile;
 			sourceTree = "<group>";
 		};
+		04F5213E28AE50EB004C6D8C /* app */ = {
+			isa = PBXGroup;
+			children = (
+				04F5213F28AE50EB004C6D8C /* appApp.swift */,
+				04F5214128AE50EB004C6D8C /* ContentView.swift */,
+				04F5214328AE50ED004C6D8C /* Assets.xcassets */,
+				04F5214528AE50ED004C6D8C /* Preview Content */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
+		04F5214528AE50ED004C6D8C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				04F5214628AE50ED004C6D8C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		6F74DC420EB3232760614D11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				119573E9C3501EC325BEC3E4 /* Pods_gars_ios.framework */,
 				68849929730CAFC68EFDCDAE /* Pods_gars_ios_gars_iosTests.framework */,
+				57AFABEFB265F4FCD511D677 /* Pods_gars_ios_app.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -203,6 +246,8 @@
 				4E9E5249E3C73D594F06BCAF /* Pods-gars-ios-gars-iosTests.release.xcconfig */,
 				92880B6C95E606EF80A8E4FC /* Pods-gars-iosTests.debug.xcconfig */,
 				449E8DB981E6CC3061EE3115 /* Pods-gars-iosTests.release.xcconfig */,
+				6DA3F5E5DB70A8B01B8E6657 /* Pods-gars-ios-app.debug.xcconfig */,
+				5D58E6BA97BDC5648771260C /* Pods-gars-ios-app.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -260,6 +305,25 @@
 			productReference = 04281FF52899BD7F00026382 /* gars-iosTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		04F5213C28AE50EB004C6D8C /* app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04F5214A28AE50ED004C6D8C /* Build configuration list for PBXNativeTarget "app" */;
+			buildPhases = (
+				CACD82A92A43FC4E4A8CE1FB /* [CP] Check Pods Manifest.lock */,
+				04F5213928AE50EB004C6D8C /* Sources */,
+				04F5213A28AE50EB004C6D8C /* Frameworks */,
+				04F5213B28AE50EB004C6D8C /* Resources */,
+				C2009388D6184989A1FB0D2F /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = app;
+			productName = app;
+			productReference = 04F5213D28AE50EB004C6D8C /* app.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -278,6 +342,9 @@
 						CreatedOnToolsVersion = 13.4.1;
 						LastSwiftMigration = 1340;
 					};
+					04F5213C28AE50EB004C6D8C = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
 				};
 			};
 			buildConfigurationList = 04281FE72899BD7F00026382 /* Build configuration list for PBXProject "gars-ios" */;
@@ -295,6 +362,7 @@
 			targets = (
 				04281FEC2899BD7F00026382 /* gars-ios */,
 				04281FF42899BD7F00026382 /* gars-iosTests */,
+				04F5213C28AE50EB004C6D8C /* app */,
 			);
 		};
 /* End PBXProject section */
@@ -312,6 +380,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04F5213B28AE50EB004C6D8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04F5214728AE50ED004C6D8C /* Preview Assets.xcassets in Resources */,
+				04F5214428AE50ED004C6D8C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +456,45 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-gars-ios-gars-iosTests/Pods-gars-ios-gars-iosTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C2009388D6184989A1FB0D2F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-gars-ios-app/Pods-gars-ios-app-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-gars-ios-app/Pods-gars-ios-app-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-gars-ios-app/Pods-gars-ios-app-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CACD82A92A43FC4E4A8CE1FB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-gars-ios-app-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -412,6 +528,15 @@
 				04F5210F28A570DB004C6D8C /* ReadmeTestCase.swift in Sources */,
 				04F5210D28A566B6004C6D8C /* GARSUtilsTestCase.swift in Sources */,
 				04F5210B28A53150004C6D8C /* GARSTestCase.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04F5213928AE50EB004C6D8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04F5214228AE50EB004C6D8C /* ContentView.swift in Sources */,
+				04F5214028AE50EB004C6D8C /* appApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +781,66 @@
 			};
 			name = Release;
 		};
+		04F5214828AE50ED004C6D8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DA3F5E5DB70A8B01B8E6657 /* Pods-gars-ios-app.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"app/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mil.nga.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04F5214928AE50ED004C6D8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5D58E6BA97BDC5648771260C /* Pods-gars-ios-app.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"app/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mil.nga.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -682,6 +867,15 @@
 			buildConfigurations = (
 				042820032899BD7F00026382 /* Debug */,
 				042820042899BD7F00026382 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04F5214A28AE50ED004C6D8C /* Build configuration list for PBXNativeTarget "app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04F5214828AE50ED004C6D8C /* Debug */,
+				04F5214928AE50ED004C6D8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
