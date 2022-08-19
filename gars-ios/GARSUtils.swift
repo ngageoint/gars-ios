@@ -130,9 +130,9 @@ public class GARSUtils {
      */
     public static func bandValue(_ latitudeBand: Character) -> Int {
         var value: Int = Int(latitudeBand.asciiValue!) - Int(GARSConstants.MIN_BAND_LETTER.asciiValue!) + 1
-        if (latitudeBand > GridConstants.BAND_LETTER_OMIT_I) {
+        if latitudeBand > GridConstants.BAND_LETTER_OMIT_I {
             value -= 1
-            if (latitudeBand > GridConstants.BAND_LETTER_OMIT_O) {
+            if latitudeBand > GridConstants.BAND_LETTER_OMIT_O {
                 value -= 1
             }
         }
@@ -165,9 +165,9 @@ public class GARSUtils {
     public static func bandLetter(_ bandValue: Int) -> Character {
         var letter = Int(GARSConstants.MIN_BAND_LETTER.asciiValue!)
         letter += bandValue - 1
-        if (letter >= GridConstants.BAND_LETTER_OMIT_I.asciiValue!) {
+        if letter >= GridConstants.BAND_LETTER_OMIT_I.asciiValue! {
             letter += 1
-            if (letter >= GridConstants.BAND_LETTER_OMIT_O.asciiValue!) {
+            if letter >= GridConstants.BAND_LETTER_OMIT_O.asciiValue! {
                 letter += 1
             }
         }
@@ -205,9 +205,9 @@ public class GARSUtils {
      */
     public static func keypadColumn(_ keypad: Int) -> Int {
         var column = 0
-        if (keypad % 3 == 0) {
+        if keypad % 3 == 0 {
             column = 2
-        } else if ((keypad + 1) % 3 == 0) {
+        } else if (keypad + 1) % 3 == 0 {
             column = 1
         }
         return column
@@ -222,9 +222,9 @@ public class GARSUtils {
      */
     public static func keypadRow(_ keypad: Int) -> Int {
         var row = 0
-        if (keypad <= 3) {
+        if keypad <= 3 {
             row = 2
-        } else if (keypad <= 6) {
+        } else if keypad <= 6 {
             row = 1
         }
         return row
@@ -354,7 +354,7 @@ public class GARSUtils {
      */
     public static func nextPrecision(_ value: Double, _ precision: Double) -> Double {
         var nextValue = value
-        if (precision < GridType.FIFTEEN_MINUTE.precision()) {
+        if precision < GridType.FIFTEEN_MINUTE.precision() {
             nextValue = GridUtils.precisionAfter(value + 0.5 * precision,
                     precision)
         } else {

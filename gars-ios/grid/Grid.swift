@@ -68,7 +68,7 @@ public class Grid: BaseGrid {
      */
     public func style(_ gridType: GridType) -> GridStyle? {
         let style: GridStyle?
-        if (gridType == type) {
+        if gridType == type {
             style = self.style
         } else {
             style = styles[gridType]
@@ -85,7 +85,7 @@ public class Grid: BaseGrid {
      */
     private func getOrCreateStyle(_ gridType: GridType) -> GridStyle {
         var style = style(gridType)
-        if (style == nil) {
+        if style == nil {
             style = GridStyle()
             setStyle(gridType, style!)
         }
@@ -101,11 +101,11 @@ public class Grid: BaseGrid {
      *            grid line style
      */
     public func setStyle(_ gridType: GridType, _ style: GridStyle?) {
-        if (gridType.precision() < precision()) {
+        if gridType.precision() < precision() {
             preconditionFailure("Grid can not define a style for a higher precision grid type. Type: \(type), Style Type: \(gridType)")
         }
         let gridStyle = style != nil ? style! : GridStyle()
-        if (gridType == type) {
+        if gridType == type {
             self.style = gridStyle
         } else {
             styles[gridType] = gridStyle
@@ -129,10 +129,10 @@ public class Grid: BaseGrid {
     public func color(_ gridType: GridType) -> UIColor? {
         var color: UIColor? = nil
         let style = style(gridType)
-        if (style != nil) {
+        if style != nil {
             color = style!.color
         }
-        if (color == nil) {
+        if color == nil {
             color = self.color
         }
         return color
@@ -160,10 +160,10 @@ public class Grid: BaseGrid {
     public func width(_ gridType: GridType) -> Double {
         var width = 0.0
         let style = style(gridType)
-        if (style != nil) {
+        if style != nil {
             width = style!.width
         }
-        if (width == 0) {
+        if width == 0 {
             width = self.width
         }
         return width
@@ -222,7 +222,7 @@ public class Grid: BaseGrid {
      */
     public func lines(_ zoom: Int, _ tileBounds: Bounds) -> [GridLine]? {
         var gridLines: [GridLine]? = nil
-        if (isLinesWithin(zoom)) {
+        if isLinesWithin(zoom) {
             gridLines = lines(tileBounds)
         }
         return gridLines
@@ -294,7 +294,7 @@ public class Grid: BaseGrid {
      */
     public func labels(_ zoom: Int, _ tileBounds: Bounds) -> [GridLabel]? {
         var labels: [GridLabel]? = nil
-        if (isLabelerWithin(zoom)) {
+        if isLabelerWithin(zoom) {
             labels = labeler()!.labels(tileBounds, type)
         }
         return labels

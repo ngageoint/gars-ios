@@ -82,17 +82,17 @@ public enum GridType: Int, CaseIterable {
      */
     public static func precision(_ value: Double) -> GridType {
         let precision: GridType
-        if (value.truncatingRemainder(dividingBy: TWENTY_DEGREE.precision()) == 0) {
+        if value.truncatingRemainder(dividingBy: TWENTY_DEGREE.precision()) == 0 {
             precision = TWENTY_DEGREE
-        } else if (value.truncatingRemainder(dividingBy: TEN_DEGREE.precision()) == 0) {
+        } else if value.truncatingRemainder(dividingBy: TEN_DEGREE.precision()) == 0 {
             precision = TEN_DEGREE
-        } else if (value.truncatingRemainder(dividingBy: FIVE_DEGREE.precision()) == 0) {
+        } else if value.truncatingRemainder(dividingBy: FIVE_DEGREE.precision()) == 0 {
             precision = FIVE_DEGREE
-        } else if (value.truncatingRemainder(dividingBy: ONE_DEGREE.precision()) == 0) {
+        } else if value.truncatingRemainder(dividingBy: ONE_DEGREE.precision()) == 0 {
             precision = ONE_DEGREE
-        } else if (value.truncatingRemainder(dividingBy: THIRTY_MINUTE.precision()) == 0) {
+        } else if value.truncatingRemainder(dividingBy: THIRTY_MINUTE.precision()) == 0 {
             precision = THIRTY_MINUTE
-        } else if (value.truncatingRemainder(dividingBy: FIFTEEN_MINUTE.precision()) == 0) {
+        } else if value.truncatingRemainder(dividingBy: FIFTEEN_MINUTE.precision()) == 0 {
             precision = FIFTEEN_MINUTE
         } else {
             precision = FIVE_MINUTE

@@ -156,7 +156,7 @@ public class GARSTileOverlay: MKTileOverlay {
 
             var tileData: Data? = tile(path.x, path.y, path.z)
             
-            if(tileData == nil){
+            if tileData == nil {
                 tileData = Data()
             }
             result(tileData, nil)

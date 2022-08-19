@@ -78,7 +78,7 @@ public struct BandNumberRangeIterator: IteratorProtocol {
 
     public mutating func next() -> Int? {
         var value: Int? = nil
-        if (number <= east) {
+        if number <= east {
             value = number
             number += 1
         }

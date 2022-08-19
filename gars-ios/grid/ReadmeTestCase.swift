@@ -139,12 +139,12 @@ class ReadmeTestCase: XCTestCase {
         let grids = Grids()
 
         let zoomGrids = grids.grids(tile.zoom)
-        if (zoomGrids.hasGrids()) {
+        if zoomGrids.hasGrids() {
 
             for grid in zoomGrids {
 
                 let lines = grid.lines(tile)
-                if (lines != nil) {
+                if lines != nil {
                     for line in lines! {
                         let pixel1 = line.point1.pixel(tile)
                         let pixel2 = line.point2.pixel(tile)
@@ -153,7 +153,7 @@ class ReadmeTestCase: XCTestCase {
                 }
 
                 let labels = grid.labels(tile)
-                if (labels != nil) {
+                if labels != nil {
                     for label in labels! {
                         let pixelRange = label.bounds.pixelRange(tile)
                         let centerPixel = label.center.pixel(tile)

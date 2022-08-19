@@ -99,20 +99,20 @@ public class GridLine: Line {
     
     public required init?(coder: NSCoder) {
         let gridValue = coder.decodeInteger(forKey: "gridType")
-        if (gridValue >= 0) {
+        if gridValue >= 0 {
             gridType = GridType.init(rawValue: gridValue)
         }
         super.init(coder: coder)
     }
     
     public func isEqual(_ gridLine: GridLine?) -> Bool {
-        if(self == gridLine) {
+        if self == gridLine {
             return true
         }
-        if(gridLine == nil) {
+        if gridLine == nil {
             return false
         }
-        if(!super.isEqual(gridLine)) {
+        if !super.isEqual(gridLine) {
             return false
         }
         return true
@@ -120,7 +120,7 @@ public class GridLine: Line {
     
     public override func isEqual(_ object: Any?) -> Bool {
         
-        if(!(object is GridLine)) {
+        if !(object is GridLine) {
             return false
         }
         

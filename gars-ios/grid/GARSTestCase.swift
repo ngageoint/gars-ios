@@ -295,7 +295,7 @@ class GARSTestCase: XCTestCase {
             
             letters += 1
             lat += GridType.THIRTY_MINUTE.precision()
-            if (letters > GARSConstants.MAX_BAND_LETTERS_NUMBER) {
+            if letters > GARSConstants.MAX_BAND_LETTERS_NUMBER {
                 letters = GARSConstants.MIN_BAND_LETTERS_NUMBER
                 lat = GARSConstants.MIN_LAT
                 number += 1

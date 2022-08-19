@@ -106,7 +106,7 @@ public class Grids: BaseGrids {
         
         let propagate = properties.boolValue(PropertyConstants.GRIDS, PropertyConstants.PROPAGATE, false)
         var styles: [GridType: GridStyle]? = nil
-        if (propagate != nil && propagate!) {
+        if propagate != nil && propagate! {
             styles = [:]
         }
         
@@ -140,7 +140,7 @@ public class Grids: BaseGrids {
         
         loadGrid(grid, gridKey, enabled, labeler)
         
-        if (styles != nil) {
+        if styles != nil {
             styles![type] = GridStyle(grid.color, grid.width)
         }
         
@@ -162,22 +162,22 @@ public class Grids: BaseGrids {
     private func loadGridStyles(_ grid: Grid, _ styles: inout [GridType: GridStyle]?, _ gridKey: String) {
         
         let precision = grid.precision()
-        if (precision < GridType.TWENTY_DEGREE.precision()) {
+        if precision < GridType.TWENTY_DEGREE.precision() {
             loadGridStyle(grid, &styles, gridKey, GridType.TWENTY_DEGREE)
         }
-        if (precision < GridType.TEN_DEGREE.precision()) {
+        if precision < GridType.TEN_DEGREE.precision() {
             loadGridStyle(grid, &styles, gridKey, GridType.TEN_DEGREE)
         }
-        if (precision < GridType.FIVE_DEGREE.precision()) {
+        if precision < GridType.FIVE_DEGREE.precision() {
             loadGridStyle(grid, &styles, gridKey, GridType.FIVE_DEGREE)
         }
-        if (precision < GridType.ONE_DEGREE.precision()) {
+        if precision < GridType.ONE_DEGREE.precision() {
             loadGridStyle(grid, &styles, gridKey, GridType.ONE_DEGREE)
         }
-        if (precision < GridType.THIRTY_MINUTE.precision()) {
+        if precision < GridType.THIRTY_MINUTE.precision() {
             loadGridStyle(grid, &styles, gridKey, GridType.THIRTY_MINUTE)
         }
-        if (precision < GridType.FIFTEEN_MINUTE.precision()) {
+        if precision < GridType.FIFTEEN_MINUTE.precision() {
             loadGridStyle(grid, &styles, gridKey, GridType.FIFTEEN_MINUTE)
         }
         
@@ -202,27 +202,27 @@ public class Grids: BaseGrids {
         var color = loadGridStyleColor(gridKey, gridKey2)
         var width = loadGridStyleWidth(gridKey, gridKey2)
 
-        if ((color == nil || width == nil) && styles != nil) {
+        if (color == nil || width == nil) && styles != nil {
             let style = styles![gridType]
-            if (style != nil) {
-                if (color == nil) {
+            if style != nil {
+                if color == nil {
                     let styleColor = style!.color
-                    if (styleColor != nil) {
+                    if styleColor != nil {
                         color = styleColor!.copy() as? UIColor
                     }
                 }
-                if (width == nil) {
+                if width == nil {
                     width = style?.width
                 }
             }
         }
 
-        if (color != nil || width != nil) {
+        if color != nil || width != nil {
 
             let style = gridStyle(color, width, grid)
             grid.setStyle(gridType, style)
 
-            if (styles != nil) {
+            if styles != nil {
                 styles![gridType] = style
             }
         }
@@ -687,7 +687,7 @@ public class Grids: BaseGrids {
      */
     public func disableLabeler(_ type: GridType) {
         let labeler = labeler(type)
-        if (labeler != nil) {
+        if labeler != nil {
             labeler!.enabled = false
         }
     }
@@ -701,7 +701,7 @@ public class Grids: BaseGrids {
      */
     private func requiredLabeler(_ type: GridType) -> GridLabeler {
         let labeler = labeler(type)
-        if (labeler == nil) {
+        if labeler == nil {
             preconditionFailure("Grid type does not have a labeler: \(type)")
         }
         return labeler!
@@ -719,7 +719,7 @@ public class Grids: BaseGrids {
         let labeler = requiredLabeler(type)
         labeler.minZoom = minZoom
         let maxZoom = labeler.maxZoom
-        if (maxZoom != nil && maxZoom! < minZoom) {
+        if maxZoom != nil && maxZoom! < minZoom {
             labeler.maxZoom = minZoom
         }
     }
@@ -735,7 +735,7 @@ public class Grids: BaseGrids {
     public func setLabelMaxZoom(_ type: GridType, _ maxZoom: Int?) {
         let labeler = requiredLabeler(type)
         labeler.maxZoom = maxZoom
-        if (maxZoom != nil && labeler.minZoom > maxZoom!) {
+        if maxZoom != nil && labeler.minZoom > maxZoom! {
             labeler.minZoom = maxZoom!
         }
     }
@@ -752,7 +752,7 @@ public class Grids: BaseGrids {
      */
     public func setLabelZoomRange(_ type: GridType, _ minZoom: Int, _ maxZoom: Int?) {
         let labeler = requiredLabeler(type)
-        if (maxZoom != nil && maxZoom! < minZoom) {
+        if maxZoom != nil && maxZoom! < minZoom {
             preconditionFailure("Min zoom '\(minZoom)' can not be larger than max zoom '\(maxZoom!)'")
         }
         labeler.minZoom = minZoom
@@ -804,7 +804,7 @@ public class Grids: BaseGrids {
      */
     public func setAllLabelColors(_ color: UIColor) {
         for grid in typeGrids.values {
-            if (grid.hasLabeler()) {
+            if grid.hasLabeler() {
                 setLabelColor(grid.type, color)
             }
         }
@@ -844,7 +844,7 @@ public class Grids: BaseGrids {
      */
     public func setAllLabelTextSizes(_ textSize: Double) {
         for grid in typeGrids.values {
-            if (grid.hasLabeler()) {
+            if grid.hasLabeler() {
                 setLabelTextSize(grid.type, textSize)
             }
         }
@@ -889,7 +889,7 @@ public class Grids: BaseGrids {
     public func drawTile(_ tileWidth: Int, _ tileHeight: Int, _ x: Int, _ y: Int, _ zoom: Int) -> UIImage? {
         var image: UIImage? = nil
         let zoomGrids = grids(zoom)
-        if (zoomGrids.hasGrids()) {
+        if zoomGrids.hasGrids() {
             image = drawTile(GridTile(tileWidth, tileHeight, x, y, zoom), zoomGrids)
         }
         return image
@@ -916,7 +916,7 @@ public class Grids: BaseGrids {
     public func drawTile(_ gridTile: GridTile) -> UIImage? {
         var image: UIImage? = nil
         let zoomGrids = grids(gridTile.zoom)
-        if (zoomGrids.hasGrids()) {
+        if zoomGrids.hasGrids() {
             image = drawTile(gridTile, zoomGrids)
         }
         return image
@@ -937,12 +937,12 @@ public class Grids: BaseGrids {
         for grid in zoomGrids {
             
             let lines = grid.lines(gridTile)
-            if (lines != nil) {
+            if lines != nil {
                 Grids.drawLines(lines!, gridTile, grid, context)
             }
             
             let labels = grid.labels(gridTile)
-            if (labels != nil) {
+            if labels != nil {
                 TileDraw.drawLabels(labels!, grid.labelBuffer(), gridTile, grid)
             }
 

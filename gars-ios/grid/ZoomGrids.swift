@@ -20,7 +20,7 @@ public class ZoomGrids: BaseZoomGrids, Sequence {
      */
     public func precision() -> GridType? {
         var type: GridType? = nil
-        if (hasGrids()) {
+        if hasGrids() {
             type = (grids.first as! Grid).type
         }
         return type

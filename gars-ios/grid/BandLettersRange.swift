@@ -96,7 +96,7 @@ public struct BandLettersRangeIterator: IteratorProtocol {
 
     public mutating func next() -> String? {
         var band: String? = nil
-        if (value <= maxValue) {
+        if value <= maxValue {
             band = GARSUtils.bandLetters(value)
             value += 1
         }

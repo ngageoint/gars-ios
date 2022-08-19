@@ -81,13 +81,13 @@ public struct GridRangeIterator: IteratorProtocol {
 
     public mutating func next() -> GARS? {
         var letters = bandLetters.next()
-        if (letters == nil) {
+        if letters == nil {
             bandNumber = bandNumbers.next()
             bandLetters = bandLettersRange.makeIterator()
             letters = bandLetters.next()
         }
         var gars: GARS? = nil
-        if (bandNumber != nil && letters != nil) {
+        if bandNumber != nil && letters != nil {
             gars = GARS(bandNumber!, letters!)
         }
         return gars

@@ -98,11 +98,11 @@ public class GARS: Hashable {
         
         var gars = String(format: "%03d", longitude) + latitude
 
-        if (gridType == GridType.FIFTEEN_MINUTE || gridType == GridType.FIVE_MINUTE) {
+        if gridType == GridType.FIFTEEN_MINUTE || gridType == GridType.FIVE_MINUTE {
 
             gars = gars.appending(String(quadrant))
 
-            if (gridType == GridType.FIVE_MINUTE) {
+            if gridType == GridType.FIVE_MINUTE {
 
                 gars = gars.appending(String(keypad))
 
@@ -165,13 +165,13 @@ public class GARS: Hashable {
         let garsValue = removeSpaces(gars)
         let matches = garsExpression.matches(in: garsValue, range: NSMakeRange(0, garsValue.count))
         var isGars = matches.count > 0
-        if (isGars) {
+        if isGars {
             let match = matches[0]
             let garsString = garsValue as NSString
             let longitude = Int(garsString.substring(with: match.range(at: 1)))!
             isGars = longitude >= GARSConstants.MIN_BAND_NUMBER
                 && longitude <= GARSConstants.MAX_BAND_NUMBER
-            if (isGars) {
+            if isGars {
                 let latitude = garsString.substring(with: match.range(at: 2)).uppercased()
                 let latitudeValue = GARSUtils.bandValue(latitude)
                 isGars = latitudeValue >= GARSConstants.MIN_BAND_LETTERS_NUMBER
@@ -255,7 +255,7 @@ public class GARS: Hashable {
     public static func parse(_ gars: String) -> GARS {
         let garsValue = removeSpaces(gars)
         let matches = garsExpression.matches(in: garsValue, range: NSMakeRange(0, garsValue.count))
-        if (matches.count <= 0) {
+        if matches.count <= 0 {
             preconditionFailure("Invalid GARS: \(gars)")
         }
         
@@ -263,15 +263,15 @@ public class GARS: Hashable {
         let garsString = garsValue as NSString
         
         let longitude = Int(garsString.substring(with: match.range(at: 1)))!
-        if (longitude < GARSConstants.MIN_BAND_NUMBER
-            || longitude > GARSConstants.MAX_BAND_NUMBER) {
+        if longitude < GARSConstants.MIN_BAND_NUMBER
+            || longitude > GARSConstants.MAX_BAND_NUMBER {
             preconditionFailure("Invalid GARS longitude: \(longitude), GARS: \(gars)")
         }
         
         let latitude = garsString.substring(with: match.range(at: 2)).uppercased()
         let latitudeValue = GARSUtils.bandValue(latitude)
-        if (latitudeValue < GARSConstants.MIN_BAND_LETTERS_NUMBER
-            || latitudeValue > GARSConstants.MAX_BAND_LETTERS_NUMBER) {
+        if latitudeValue < GARSConstants.MIN_BAND_LETTERS_NUMBER
+            || latitudeValue > GARSConstants.MAX_BAND_LETTERS_NUMBER {
             preconditionFailure("Invalid GARS latitude: \(latitude), GARS: \(gars)")
         }
         
@@ -279,13 +279,13 @@ public class GARS: Hashable {
         var keypad = GARSConstants.DEFAULT_KEYPAD
         
         let quadrantMatch = match.range(at: 3)
-        if (quadrantMatch.length > 0) {
+        if quadrantMatch.length > 0 {
             
             let quadrantValue = garsString.substring(with: quadrantMatch)
             quadrant = Int(quadrantValue)!
             
             let keypadMatch = match.range(at: 4)
-            if (keypadMatch.length > 0) {
+            if keypadMatch.length > 0 {
              
                 let keypadValue = garsString.substring(with: keypadMatch)
                 keypad = Int(keypadValue)!
@@ -307,7 +307,7 @@ public class GARS: Hashable {
     public static func precision(_ gars: String) -> GridType {
         let garsValue = removeSpaces(gars)
         let matches = garsExpression.matches(in: garsValue, range: NSMakeRange(0, garsValue.count))
-        if (matches.count <= 0) {
+        if matches.count <= 0 {
             preconditionFailure("Invalid GARS: \(gars)")
         }
         
@@ -315,11 +315,11 @@ public class GARS: Hashable {
         
         var precision: GridType
         
-        if (match.range(at: 4).length > 0) {
+        if match.range(at: 4).length > 0 {
             precision = GridType.FIVE_MINUTE
-        } else if (match.range(at: 3).length > 0) {
+        } else if match.range(at: 3).length > 0 {
             precision = GridType.FIFTEEN_MINUTE
-        } else{
+        } else {
             precision = GridType.THIRTY_MINUTE
         }
         
