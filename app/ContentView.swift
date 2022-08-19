@@ -200,7 +200,7 @@ private func search(_ mapState: MapState, _ coordinate: String) -> Bool {
         let gridType = GARS.precision(coordinate)
         point = gars.toPoint()
         mapState.searchGARSResult = coordinate.uppercased()
-        zoom = garsCoordinateZoom(mapState, gridType, currentZoom)
+        zoom = garsCoordinateZoom(mapState, gridType, currentZoom + 1)
     } else {
         let parts = coordinate.components(separatedBy: ",")
         if parts.count == 2 {
