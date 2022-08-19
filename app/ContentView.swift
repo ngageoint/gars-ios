@@ -156,7 +156,7 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate, UIGestureRecognizerDelega
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         let center = mapView.centerCoordinate
-        let zoom = TileUtils.currentZoom(mapView)
+        let zoom = TileUtils.currentZoom(mapView, GARSConstants.ZOOM_OFFSET)
         coordinate.wgs84Label = formatter.string(from: center.longitude as NSNumber)! + "," + formatter.string(from: center.latitude as NSNumber)!
         var gars: String? = nil
         if mapState.searchGARSResult != nil {
@@ -193,7 +193,7 @@ private func search(_ mapState: MapState, _ coordinate: String) -> Bool {
     mapState.searchGARSResult = nil
     var point: GridPoint? = nil
     var zoom: Int? = nil
-    let currentZoom = TileUtils.currentZoom(mapState.mapView)
+    let currentZoom = TileUtils.currentZoom(mapState.mapView, GARSConstants.ZOOM_OFFSET)
     let coord = coordinate.trimmingCharacters(in: .whitespacesAndNewlines)
     if GARS.isGARS(coord) {
         let gars = GARS.parse(coordinate)
@@ -242,11 +242,11 @@ private func garsCoordinateZoom(_ mapState: MapState, _ gridType: GridType, _ zo
     var garsZoom: Int? = nil
     let grid = mapState.tileOverlay.grid(gridType)
     let minZoom = grid.linesMinZoom
-    if minZoom != nil && zoom - 1 < Double(minZoom!) {
+    if minZoom != nil && zoom < Double(minZoom!) {
         garsZoom = minZoom
     } else {
         let maxZoom = grid.linesMaxZoom
-        if maxZoom != nil && zoom >= Double(maxZoom!) {
+        if maxZoom != nil && zoom >= Double(maxZoom!) + 1 {
             garsZoom = maxZoom
         }
     }
