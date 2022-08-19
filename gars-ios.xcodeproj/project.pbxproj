@@ -69,9 +69,9 @@
 		04F5210228A44EAB004C6D8C /* GridLabeler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLabeler.swift; sourceTree = "<group>"; };
 		04F5210428A44F27004C6D8C /* Grids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grids.swift; sourceTree = "<group>"; };
 		04F5210628A44F61004C6D8C /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
-		04F5210A28A53150004C6D8C /* GARSTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GARSTestCase.swift; path = "gars-ios/grid/GARSTestCase.swift"; sourceTree = SOURCE_ROOT; };
-		04F5210C28A566B6004C6D8C /* GARSUtilsTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GARSUtilsTestCase.swift; path = "gars-ios/grid/GARSUtilsTestCase.swift"; sourceTree = SOURCE_ROOT; };
-		04F5210E28A570DB004C6D8C /* ReadmeTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReadmeTestCase.swift; path = "gars-ios/grid/ReadmeTestCase.swift"; sourceTree = SOURCE_ROOT; };
+		04F5210A28A53150004C6D8C /* GARSTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GARSTestCase.swift; sourceTree = "<group>"; };
+		04F5210C28A566B6004C6D8C /* GARSUtilsTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GARSUtilsTestCase.swift; path = "gars-iosTests/GARSUtilsTestCase.swift"; sourceTree = SOURCE_ROOT; };
+		04F5210E28A570DB004C6D8C /* ReadmeTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReadmeTestCase.swift; path = "gars-iosTests/ReadmeTestCase.swift"; sourceTree = SOURCE_ROOT; };
 		04F5211228AAD9EB004C6D8C /* GARSTileOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GARSTileOverlay.swift; sourceTree = "<group>"; };
 		04F5213D28AE50EB004C6D8C /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F5213F28AE50EB004C6D8C /* appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appApp.swift; sourceTree = "<group>"; };
