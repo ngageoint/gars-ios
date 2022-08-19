@@ -11,7 +11,7 @@ Software source code previously released under an open source license and then m
 
 ### About ###
 
-[GARS](http://ngageoint.github.io/gars-ios/) is a Swift library providing Global Area Reference System functionality, a standardized geospatial reference system for areas.
+[GARS](http://ngageoint.github.io/gars-ios/) is a Swift library providing Global Area Reference System functionality, a standardized geospatial reference system for areas.  [GARS App](https://github.com/ngageoint/gars-ios/tree/master/app) is a map implementation utilizing this library.
 
 ### Usage ###
 
@@ -126,12 +126,12 @@ let tileOverlay = GARSTileOverlay(grids)
 let grids = Grids()
 
 let zoomGrids = grids.grids(tile.zoom)
-if (zoomGrids.hasGrids()) {
+if zoomGrids.hasGrids() {
 
     for grid in zoomGrids {
 
         let lines = grid.lines(tile)
-        if (lines != nil) {
+        if lines != nil {
             for line in lines! {
                 let pixel1 = line.point1.pixel(tile)
                 let pixel2 = line.point2.pixel(tile)
@@ -140,7 +140,7 @@ if (zoomGrids.hasGrids()) {
         }
 
         let labels = grid.labels(tile)
-        if (labels != nil) {
+        if labels != nil {
             for label in labels! {
                 let pixelRange = label.bounds.pixelRange(tile)
                 let centerPixel = label.center.pixel(tile)
@@ -185,3 +185,11 @@ Pull from GitHub:
 Include as local project:
 
     pod 'gars-ios', :path => '../gars-ios'
+
+### Remote Dependencies ###
+
+* [Grid](https://github.com/ngageoint/grid-ios) (The MIT License (MIT)) - Grid Library
+
+### GARS App ###
+
+The [GARS App](https://github.com/ngageoint/gars-ios/tree/master/app) provides a Global Area Reference System map using this library.
