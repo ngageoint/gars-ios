@@ -12,20 +12,32 @@ import grid_ios
 
 struct ContentView: View {
     
+    let mapState = MapState()
     @ObservedObject var coordinate: Coordinate = Coordinate()
+    @State private var isShowingSearch = false
     
     var body: some View {
         VStack {
-            MapView(coordinate)
+            MapView(mapState, coordinate)
             HStack {
                 Text(coordinate.garsLabel)
                 Spacer()
                 Text(coordinate.wgs84Label)
                 Spacer()
                 Text(coordinate.zoomLabel)
+                Button(action: {
+                    withAnimation {
+                        self.isShowingSearch.toggle()
+                    }
+                }) {
+                    Image("search")
+                        .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
+                }
             }
             .padding()
+            .textSelection(.enabled)
         }
+        .textSearch(isShowing: $isShowingSearch, mapState: mapState)
     }
 }
 
@@ -41,27 +53,39 @@ class Coordinate: ObservableObject{
     @Published var zoomLabel = ""
 }
 
+class MapState {
+    
+    let mapView = MKMapView()
+    let tileOverlay: GARSTileOverlay
+    var searchGARSResult: String?
+    
+    init() {
+        let grids = Grids()
+        tileOverlay = GARSTileOverlay(grids)
+    }
+    
+}
+
 struct MapView: UIViewRepresentable {
   
-    let mapView = MKMapView()
-    var coordinate: Coordinate
-    var tileOverlay: GARSTileOverlay
+    let mapState: MapState
+    let coordinate: Coordinate
   
-    public init(_ coordinate: Coordinate) {
+    init(_ mapState: MapState, _ coordinate: Coordinate) {
+        self.mapState = mapState
         self.coordinate = coordinate
-        tileOverlay = GARSTileOverlay()
     }
     
     func makeUIView(context: Context) -> MKMapView {
         
-        mapView.delegate = context.coordinator
-        mapView.addOverlay(tileOverlay)
+        mapState.mapView.delegate = context.coordinator
+        mapState.mapView.addOverlay(mapState.tileOverlay)
         
         // double tap recognizer has no action
         let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: nil)
         doubleTapRecognizer.numberOfTapsRequired = 2
         doubleTapRecognizer.numberOfTouchesRequired = 1
-        mapView.addGestureRecognizer(doubleTapRecognizer)
+        mapState.mapView.addGestureRecognizer(doubleTapRecognizer)
         
         let singleTapGestureRecognizer = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.singleTapGesture(tapGestureRecognizer:)))
         singleTapGestureRecognizer.numberOfTapsRequired = 1
@@ -70,9 +94,9 @@ struct MapView: UIViewRepresentable {
         singleTapGestureRecognizer.cancelsTouchesInView = true
         singleTapGestureRecognizer.delegate = context.coordinator
         singleTapGestureRecognizer.require(toFail: doubleTapRecognizer)
-        mapView.addGestureRecognizer(singleTapGestureRecognizer)
+        mapState.mapView.addGestureRecognizer(singleTapGestureRecognizer)
         
-        return mapView
+        return mapState.mapView
     }
   
     func updateUIView(_ view: MKMapView, context: Context) {
@@ -80,22 +104,26 @@ struct MapView: UIViewRepresentable {
     }
     
     func makeCoordinator() -> MapViewCoordinator {
-        return MapViewCoordinator(mapView, coordinate, tileOverlay)
+        return MapViewCoordinator(mapState, coordinate)
     }
     
 }
 
 class MapViewCoordinator: NSObject, MKMapViewDelegate, UIGestureRecognizerDelegate {
     
-    var mapView: MKMapView
-    var coordinate: Coordinate
-    var overlay: GARSTileOverlay
+    let mapState: MapState
+    let coordinate: Coordinate
+    let formatter: NumberFormatter
     var centerAdded: Bool = false
     
-    public init(_ mapView: MKMapView, _ coordinate: Coordinate, _ overlay: GARSTileOverlay) {
-        self.mapView = mapView
+    init(_ mapState: MapState, _ coordinate: Coordinate) {
+        self.mapState = mapState
         self.coordinate = coordinate
-        self.overlay = overlay
+        
+        formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.minimumFractionDigits = 1
+        formatter.maximumFractionDigits = 5
     }
     
     func mapViewWillStartRenderingMap(_ mapView: MKMapView) {
@@ -120,22 +148,161 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate, UIGestureRecognizerDelega
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         let center = mapView.centerCoordinate
         let zoom = TileUtils.currentZoom(mapView)
-        coordinate.wgs84Label = String(format: "%.5f", center.longitude) + "," + String(format: "%.5f", center.latitude)
-        coordinate.garsLabel = overlay.coordinate(center, Int(zoom))
+        coordinate.wgs84Label = formatter.string(from: center.longitude as NSNumber)! + "," + formatter.string(from: center.latitude as NSNumber)!
+        var gars: String? = nil
+        if mapState.searchGARSResult != nil {
+            gars = mapState.searchGARSResult
+            mapState.searchGARSResult = nil
+        } else {
+            gars = mapState.tileOverlay.coordinate(center, Int(zoom))
+        }
+        coordinate.garsLabel = gars!
         coordinate.zoomLabel = String(format: "%.1f", trunc(zoom * 10) / 10)
     }
     
     @objc func singleTapGesture(tapGestureRecognizer: UITapGestureRecognizer) {
         if tapGestureRecognizer.state == .ended {
-            self.mapTap(tapGestureRecognizer.location(in: mapView), tapGestureRecognizer)
+            self.mapTap(tapGestureRecognizer.location(in: mapState.mapView), tapGestureRecognizer)
         }
     }
     
     func mapTap(_ tapPoint:CGPoint, _ gesture: UITapGestureRecognizer) {
-        let tapCoord = mapView.convert(tapPoint, toCoordinateFrom: mapView)
-        mapView.setCenter(tapCoord, animated: true)
+        let tapCoord = mapState.mapView.convert(tapPoint, toCoordinateFrom: mapState.mapView)
+        mapState.mapView.setCenter(tapCoord, animated: true)
     }
     
+}
+
+/**
+ * Search and move to the coordinate
+ *
+ * @param mapState map state
+ * @param coordinate GARS or WGS84 coordinate
+ * @return true if search found coordinate, false if not
+ */
+private func search(_ mapState: MapState, _ coordinate: String) -> Bool {
+    mapState.searchGARSResult = nil
+    var point: GridPoint? = nil
+    var zoom: Int? = nil
+    let currentZoom = TileUtils.currentZoom(mapState.mapView)
+    let coord = coordinate.trimmingCharacters(in: .whitespacesAndNewlines)
+    if GARS.isGARS(coord) {
+        let gars = GARS.parse(coordinate)
+        let gridType = GARS.precision(coordinate)
+        point = gars.toPoint()
+        mapState.searchGARSResult = coordinate.uppercased()
+        zoom = garsCoordinateZoom(mapState, gridType, currentZoom)
+    } else {
+        let parts = coordinate.components(separatedBy: ",")
+        if parts.count == 2 {
+            let lon = Double(parts[0].trimmingCharacters(in: .whitespacesAndNewlines))
+            let lat = Double(parts[1].trimmingCharacters(in: .whitespacesAndNewlines))
+            if lon != nil && lat != nil {
+                point = GridPoint(lon!, lat!)
+            }
+        }
+    }
+    let found = point != nil ? true : false
+    if found {
+        let locationCoordinate = TileUtils.toCoordinate(point!)
+        if mapState.searchGARSResult == nil {
+            mapState.searchGARSResult = mapState.tileOverlay.coordinate(locationCoordinate, Int(currentZoom))
+        }
+        
+        if zoom != nil {
+            let region = TileUtils.coordinateRegion(locationCoordinate, Double(zoom!), mapState.mapView)
+            mapState.mapView.setRegion(region, animated: true)
+        } else {
+            mapState.mapView.setCenter(locationCoordinate, animated: true)
+        }
+        
+    }
+    
+    return found
+}
+
+/**
+ * Get the GARS coordinate zoom level
+ *
+ * @param mapState map state
+ * @param gridType grid type precision
+ * @param zoom     current zoom
+ * @return zoom level or null
+ */
+private func garsCoordinateZoom(_ mapState: MapState, _ gridType: GridType, _ zoom: Double) -> Int? {
+    var garsZoom: Int? = nil
+    let grid = mapState.tileOverlay.grid(gridType)
+    let minZoom = grid.linesMinZoom
+    if minZoom != nil && zoom - 1 < Double(minZoom!) {
+        garsZoom = minZoom
+    } else {
+        let maxZoom = grid.linesMaxZoom
+        if maxZoom != nil && zoom >= Double(maxZoom!) {
+            garsZoom = maxZoom
+        }
+    }
+    if garsZoom != nil {
+        garsZoom! -= 1
+    }
+    return garsZoom
+}
+
+struct TextSearch<Presenting>: View where Presenting: View {
+
+    @Binding var isShowing: Bool
+    let mapState: MapState
+    let presenting: Presenting
+    @State var text = ""
+    @State var searchAlert = false
+    @State var searchAlertText = ""
+
+    var body: some View {
+        GeometryReader { (deviceSize: GeometryProxy) in
+            ZStack {
+                self.presenting
+                    .disabled(isShowing)
+                VStack {
+                    Text("Search Coordinate")
+                    TextField("", text: self.$text)
+                    Divider()
+                    HStack {
+                        Button(action: {
+                            withAnimation {
+                                self.isShowing.toggle()
+                                self.text = ""
+                            }
+                        }) {
+                            Text("Cancel")
+                        }
+                        Spacer()
+                        Button(action: {
+                            withAnimation {
+                                self.isShowing.toggle()
+                                if !search(mapState, self.text) {
+                                    searchAlertText = self.text
+                                    searchAlert.toggle()
+                                }
+                                self.text = ""
+                            }
+                        }) {
+                            Text("Search")
+                        }.alert(isPresented: $searchAlert, content: {
+                            Alert(title: Text("Unsupported Coordinate:\n\(searchAlertText)"))
+                        })
+                    }
+                }
+                .padding()
+                .background(Color.white)
+                .frame(
+                    width: deviceSize.size.width*0.7,
+                    height: deviceSize.size.height*0.7
+                )
+                .shadow(radius: 1)
+                .opacity(self.isShowing ? 1 : 0)
+            }
+        }
+    }
+
 }
 
 extension UIImage {
@@ -145,5 +312,14 @@ extension UIImage {
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage
+    }
+}
+
+extension View {
+    func textSearch(isShowing: Binding<Bool>,
+                        mapState: MapState) -> some View {
+        TextSearch(isShowing: isShowing,
+                       mapState: mapState,
+                       presenting: self)
     }
 }
