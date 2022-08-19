@@ -33,6 +33,15 @@ struct ContentView: View {
                     Image("search")
                         .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
                 }
+                Menu {
+                    Button("Muted Standard", action: { mapState.mapView.mapType = MKMapType.mutedStandard })
+                    Button("Hybrid", action: { mapState.mapView.mapType = MKMapType.hybrid })
+                    Button("Satellite", action: { mapState.mapView.mapType = MKMapType.satellite })
+                    Button("Standard", action: { mapState.mapView.mapType = MKMapType.standard } )
+                } label: {
+                    Image("layers")
+                        .renderingMode(Image.TemplateRenderingMode?.init(Image.TemplateRenderingMode.original))
+                }
             }
             .padding()
             .textSelection(.enabled)
