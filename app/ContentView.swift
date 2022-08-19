@@ -156,14 +156,14 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate, UIGestureRecognizerDelega
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         let center = mapView.centerCoordinate
-        let zoom = TileUtils.currentZoom(mapView, GARSConstants.ZOOM_OFFSET)
+        let zoom = TileUtils.currentZoom(mapView)
         coordinate.wgs84Label = formatter.string(from: center.longitude as NSNumber)! + "," + formatter.string(from: center.latitude as NSNumber)!
         var gars: String? = nil
         if mapState.searchGARSResult != nil {
             gars = mapState.searchGARSResult
             mapState.searchGARSResult = nil
         } else {
-            gars = mapState.tileOverlay.coordinate(center, Int(zoom))
+            gars = mapState.tileOverlay.coordinate(center, Int(zoom + 1))
         }
         coordinate.garsLabel = gars!
         coordinate.zoomLabel = String(format: "%.1f", trunc(zoom * 10) / 10)
@@ -193,7 +193,7 @@ private func search(_ mapState: MapState, _ coordinate: String) -> Bool {
     mapState.searchGARSResult = nil
     var point: GridPoint? = nil
     var zoom: Int? = nil
-    let currentZoom = TileUtils.currentZoom(mapState.mapView, GARSConstants.ZOOM_OFFSET)
+    let currentZoom = TileUtils.currentZoom(mapState.mapView)
     let coord = coordinate.trimmingCharacters(in: .whitespacesAndNewlines)
     if GARS.isGARS(coord) {
         let gars = GARS.parse(coordinate)
