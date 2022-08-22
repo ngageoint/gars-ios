@@ -20,11 +20,11 @@ struct ContentView: View {
         VStack {
             MapView(mapState, coordinate)
             HStack {
-                Text(coordinate.garsLabel)
+                Text(coordinate.garsLabel).font(.subheadline)
                 Spacer()
-                Text(coordinate.wgs84Label)
+                Text(coordinate.wgs84Label).font(.subheadline)
                 Spacer()
-                Text(coordinate.zoomLabel)
+                Text(coordinate.zoomLabel).font(.subheadline)
                 Button(action: {
                     withAnimation {
                         self.isShowingSearch.toggle()
@@ -163,7 +163,7 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate, UIGestureRecognizerDelega
             gars = mapState.searchGARSResult
             mapState.searchGARSResult = nil
         } else {
-            gars = mapState.tileOverlay.coordinate(center, Int(zoom + 1))
+            gars = mapState.tileOverlay.coordinate(center, Int(zoom))
         }
         coordinate.garsLabel = gars!
         coordinate.zoomLabel = String(format: "%.1f", trunc(zoom * 10) / 10)
@@ -200,7 +200,7 @@ private func search(_ mapState: MapState, _ coordinate: String) -> Bool {
         let gridType = GARS.precision(coordinate)
         point = gars.toPoint()
         mapState.searchGARSResult = coordinate.uppercased()
-        zoom = garsCoordinateZoom(mapState, gridType, currentZoom + 1)
+        zoom = garsCoordinateZoom(mapState, gridType, currentZoom)
     } else {
         let parts = coordinate.components(separatedBy: ",")
         if parts.count == 2 {
@@ -249,9 +249,6 @@ private func garsCoordinateZoom(_ mapState: MapState, _ gridType: GridType, _ zo
         if maxZoom != nil && zoom >= Double(maxZoom!) + 1 {
             garsZoom = maxZoom
         }
-    }
-    if garsZoom != nil {
-        garsZoom! -= 1
     }
     return garsZoom
 }
