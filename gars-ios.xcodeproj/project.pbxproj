@@ -73,7 +73,7 @@
 		04F5210C28A566B6004C6D8C /* GARSUtilsTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GARSUtilsTestCase.swift; path = "gars-iosTests/GARSUtilsTestCase.swift"; sourceTree = SOURCE_ROOT; };
 		04F5210E28A570DB004C6D8C /* ReadmeTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReadmeTestCase.swift; path = "gars-iosTests/ReadmeTestCase.swift"; sourceTree = SOURCE_ROOT; };
 		04F5211228AAD9EB004C6D8C /* GARSTileOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GARSTileOverlay.swift; sourceTree = "<group>"; };
-		04F5213D28AE50EB004C6D8C /* app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = app.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04F5213D28AE50EB004C6D8C /* GARS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GARS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F5213F28AE50EB004C6D8C /* appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appApp.swift; sourceTree = "<group>"; };
 		04F5214128AE50EB004C6D8C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		04F5214328AE50ED004C6D8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 			children = (
 				04281FED2899BD7F00026382 /* gars_ios.framework */,
 				04281FF52899BD7F00026382 /* gars-iosTests.xctest */,
-				04F5213D28AE50EB004C6D8C /* app.app */,
+				04F5213D28AE50EB004C6D8C /* GARS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -323,7 +323,7 @@
 			);
 			name = app;
 			productName = app;
-			productReference = 04F5213D28AE50EB004C6D8C /* app.app */;
+			productReference = 04F5213D28AE50EB004C6D8C /* GARS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -806,7 +806,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = mil.nga.app;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GARS;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -836,7 +836,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = mil.nga.app;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GARS;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
