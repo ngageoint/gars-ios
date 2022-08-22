@@ -14,6 +14,11 @@ import grid_ios
 public class Grids: BaseGrids {
     
     /**
+     * Grid zoom display offset from XYZ tile zoom levels, defaulted to GARSConstants.ZOOM_OFFSET
+     */
+    public var zoomOffset = GARSConstants.ZOOM_OFFSET
+    
+    /**
      * Grids
      */
     private var typeGrids: [GridType: Grid] = [:]
@@ -888,9 +893,10 @@ public class Grids: BaseGrids {
      */
     public func drawTile(_ tileWidth: Int, _ tileHeight: Int, _ x: Int, _ y: Int, _ zoom: Int) -> UIImage? {
         var image: UIImage? = nil
-        let zoomGrids = grids(zoom)
+        let gridZoom = zoom + zoomOffset
+        let zoomGrids = grids(gridZoom)
         if zoomGrids.hasGrids() {
-            image = drawTile(GridTile(tileWidth, tileHeight, x, y, zoom), zoomGrids)
+            image = drawTile(GridTile(tileWidth, tileHeight, x, y, zoom, gridZoom), zoomGrids)
         }
         return image
     }

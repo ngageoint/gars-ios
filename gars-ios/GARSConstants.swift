@@ -84,8 +84,8 @@ public struct GARSConstants {
     public static let DEFAULT_KEYPAD = 7
     
     /**
-     * Map Zoom Offset for coordinate searches and auto zoom
+     * Grid zoom display offset from XYZ tile zoom levels
      */
-    public static let ZOOM_OFFSET = 1.0
+    public static let ZOOM_OFFSET = -1
     
 }
