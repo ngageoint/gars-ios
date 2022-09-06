@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gars-ios 1.0.0 - GARSUtils</title>
+    <link rel="stylesheet" type="text/css" href="https://ngageoint.github.io/gars-ios/docs/api/all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="https://ngageoint.github.io/gars-ios/docs/api/">
+            <strong>
+                gars-ios 1.0.0
+            </strong>
+            <span>Documentation</span>
+        </a>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#methods">Methods</a><ul><li class="function"><a href="#garsutils.longitude(_:)">longitude(_:​)</a></li><li class="function"><a href="#garsutils.latitude(_:)">latitude(_:​)</a></li><li class="function"><a href="#garsutils.latitude(_:)">latitude(_:​)</a></li><li class="function"><a href="#garsutils.longitudeband(_:)">longitude​Band(_:​)</a></li><li class="function"><a href="#garsutils.longitudedecimalband(_:)">longitude​Decimal​Band(_:​)</a></li><li class="function"><a href="#garsutils.latitudeband(_:)">latitude​Band(_:​)</a></li><li class="function"><a href="#garsutils.latitudebandvalue(_:)">latitude​Band​Value(_:​)</a></li><li class="function"><a href="#garsutils.latitudedecimalbandvalue(_:)">latitude​Decimal​Band​Value(_:​)</a></li><li class="function"><a href="#garsutils.bandvalue(_:)">band​Value(_:​)</a></li><li class="function"><a href="#garsutils.bandvalue(_:)">band​Value(_:​)</a></li><li class="function"><a href="#garsutils.bandletters(_:)">band​Letters(_:​)</a></li><li class="function"><a href="#garsutils.bandletter(_:)">band​Letter(_:​)</a></li><li class="function"><a href="#garsutils.quadrantcolumn(_:)">quadrant​Column(_:​)</a></li><li class="function"><a href="#garsutils.quadrantrow(_:)">quadrant​Row(_:​)</a></li><li class="function"><a href="#garsutils.keypadcolumn(_:)">keypad​Column(_:​)</a></li><li class="function"><a href="#garsutils.keypadrow(_:)">keypad​Row(_:​)</a></li><li class="function"><a href="#garsutils.quadrant(_:_:)">quadrant(_:​_:​)</a></li><li class="function"><a href="#garsutils.keypad(_:_:)">keypad(_:​_:​)</a></li><li class="function"><a href="#garsutils.gridrange(_:)">grid​Range(_:​)</a></li><li class="function"><a href="#garsutils.bandnumberrange(_:)">band​Number​Range(_:​)</a></li><li class="function"><a href="#garsutils.bandnumberrange(_:_:)">band​Number​Range(_:​_:​)</a></li><li class="function"><a href="#garsutils.bandlettersrange(_:)">band​Letters​Range(_:​)</a></li><li class="function"><a href="#garsutils.bandlettersrange(_:_:)">band​Letters​Range(_:​_:​)</a></li><li class="function"><a href="#garsutils.degreelabel(_:_:)">degree​Label(_:​_:​)</a></li><li class="function"><a href="#garsutils.nextprecision(_:_:)">next​Precision(_:​_:​)</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Class</small>
+    <code class="name">GARSUtils</code>
+</h1>
+
+<div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">class</span> <span class="type">GARSUtils</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Global Area Reference System utilities</li>
+</ul>
+
+</div>
+
+    <section id="methods">
+        <h2>Methods</h2>
+
+        <div role="article" class="function" id="garsutils.longitude(_:)">
+    <h3>
+        <code><a href="#garsutils.longitude(_:)">longitude(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">longitude</span>(<span class="keyword">_</span> <span class="variable">band</span>: <span class="type">Int</span>) -&gt; <span class="type">Double</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the longitude from the longitude band</li>
+<li></li>
+<li>@param band</li>
+<li>
+<pre><code>       longitudinal band number
+</code></pre>
+</li>
+<li>@return longitude</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.latitude(_:)">
+    <h3>
+        <code><a href="#garsutils.latitude(_:)">latitude(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">latitude</span>(<span class="keyword">_</span> <span class="variable">band</span>: <span class="type">String</span>) -&gt; <span class="type">Double</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the latitude from the latitude band letters</li>
+<li></li>
+<li>@param band</li>
+<li>
+<pre><code>       latitudinal band letters
+</code></pre>
+</li>
+<li>@return latitude</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.latitude(_:)">
+    <h3>
+        <code><a href="#garsutils.latitude(_:)">latitude(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">latitude</span>(<span class="keyword">_</span> <span class="variable">band</span>: <span class="type">Int</span>) -&gt; <span class="type">Double</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the latitude from the latitude band letters number equivalent</li>
+<li></li>
+<li>@param band</li>
+<li>
+<pre><code>       latitudinal band number
+</code></pre>
+</li>
+<li>@return latitude</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.longitudeband(_:)">
+    <h3>
+        <code><a href="#garsutils.longitudeband(_:)">longitude​Band(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">longitudeBand</span>(<span class="keyword">_</span> <span class="variable">longitude</span>: <span class="type">Double</span>) -&gt; <span class="type">Int</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the longitude band from the longitude</li>
+<li></li>
+<li>@param longitude</li>
+<li>
+<pre><code>       longitude
+</code></pre>
+</li>
+<li>@return longitude band</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.longitudedecimalband(_:)">
+    <h3>
+        <code><a href="#garsutils.longitudedecimalband(_:)">longitude​Decimal​Band(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">longitudeDecimalBand</span>(<span class="keyword">_</span> <span class="variable">longitude</span>: <span class="type">Double</span>) -&gt; <span class="type">Double</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the longitude decimal band from the longitude</li>
+<li></li>
+<li>@param longitude</li>
+<li>
+<pre><code>       longitude
+</code></pre>
+</li>
+<li>@return longitude decimal band</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.latitudeband(_:)">
+    <h3>
+        <code><a href="#garsutils.latitudeband(_:)">latitude​Band(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">latitudeBand</span>(<span class="keyword">_</span> <span class="variable">latitude</span>: <span class="type">Double</span>) -&gt; <span class="type">String</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the latitude band letters from the latitude</li>
+<li></li>
+<li>@param latitude</li>
+<li>
+<pre><code>       latitude
+</code></pre>
+</li>
+<li>@return latitude band letters</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.latitudebandvalue(_:)">
+    <h3>
+        <code><a href="#garsutils.latitudebandvalue(_:)">latitude​Band​Value(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">latitudeBandValue</span>(<span class="keyword">_</span> <span class="variable">latitude</span>: <span class="type">Double</span>) -&gt; <span class="type">Int</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the latitude band value from the latitude</li>
+<li></li>
+<li>@param latitude</li>
+<li>
+<pre><code>       latitude
+</code></pre>
+</li>
+<li>@return latitude band value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.latitudedecimalbandvalue(_:)">
+    <h3>
+        <code><a href="#garsutils.latitudedecimalbandvalue(_:)">latitude​Decimal​Band​Value(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">latitudeDecimalBandValue</span>(<span class="keyword">_</span> <span class="variable">latitude</span>: <span class="type">Double</span>) -&gt; <span class="type">Double</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the latitude decimal band value from the latitude</li>
+<li></li>
+<li>@param latitude</li>
+<li>
+<pre><code>       latitude
+</code></pre>
+</li>
+<li>@return latitude decimal band value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.bandvalue(_:)">
+    <h3>
+        <code><a href="#garsutils.bandvalue(_:)">band​Value(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">bandValue</span>(<span class="keyword">_</span> <span class="variable">latitudeBand</span>: <span class="type">String</span>) -&gt; <span class="type">Int</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the latitude band number equivalent to the longitude band (where AA</li>
+<li>is 1 and QZ is 360)</li>
+<li></li>
+<li>@param latitudeBand</li>
+<li>
+<pre><code>       two character latitude band
+</code></pre>
+</li>
+<li>@return number band value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.bandvalue(_:)">
+    <h3>
+        <code><a href="#garsutils.bandvalue(_:)">band​Value(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">bandValue</span>(<span class="keyword">_</span> <span class="variable">latitudeBand</span>: <span class="type">Character</span>) -&gt; <span class="type">Int</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the latitude character band number equivalent (where A is 1 and Z is</li>
+<li>
+<ol start="24">
+<li></li>
+</ol>
+</li>
+<li></li>
+<li>@param latitudeBand</li>
+<li>
+<pre><code>       single character from latitude band
+</code></pre>
+</li>
+<li>@return number band value</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.bandletters(_:)">
+    <h3>
+        <code><a href="#garsutils.bandletters(_:)">band​Letters(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">bandLetters</span>(<span class="keyword">_</span> <span class="variable">bandValue</span>: <span class="type">Int</span>) -&gt; <span class="type">String</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the latitude band from the band number (where 1 is AA and 360 is QZ)</li>
+<li></li>
+<li>@param bandValue</li>
+<li>
+<pre><code>       number band value
+</code></pre>
+</li>
+<li>@return two character latitude band</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.bandletter(_:)">
+    <h3>
+        <code><a href="#garsutils.bandletter(_:)">band​Letter(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">bandLetter</span>(<span class="keyword">_</span> <span class="variable">bandValue</span>: <span class="type">Int</span>) -&gt; <span class="type">Character</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the latitude character equivalent from the band number (where 1 is A</li>
+<li>and 24 is Z)</li>
+<li></li>
+<li>@param bandValue</li>
+<li>
+<pre><code>       number band value
+</code></pre>
+</li>
+<li>@return single character of latitude band</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.quadrantcolumn(_:)">
+    <h3>
+        <code><a href="#garsutils.quadrantcolumn(_:)">quadrant​Column(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">quadrantColumn</span>(<span class="keyword">_</span> <span class="variable">quadrant</span>: <span class="type">Int</span>) -&gt; <span class="type">Int</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the quadrant southwest origin 0 indexed column</li>
+<li></li>
+<li>@param quadrant</li>
+<li>
+<pre><code>       quadrant number
+</code></pre>
+</li>
+<li>@return 0 for quadrants 1|3, 1 for quadrants 2|4</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.quadrantrow(_:)">
+    <h3>
+        <code><a href="#garsutils.quadrantrow(_:)">quadrant​Row(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">quadrantRow</span>(<span class="keyword">_</span> <span class="variable">quadrant</span>: <span class="type">Int</span>) -&gt; <span class="type">Int</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the quadrant southwest origin 0 indexed row</li>
+<li></li>
+<li>@param quadrant</li>
+<li>
+<pre><code>       quadrant number
+</code></pre>
+</li>
+<li>@return 0 for quadrants 3|4, 1 for quadrants 1|2</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.keypadcolumn(_:)">
+    <h3>
+        <code><a href="#garsutils.keypadcolumn(_:)">keypad​Column(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">keypadColumn</span>(<span class="keyword">_</span> <span class="variable">keypad</span>: <span class="type">Int</span>) -&gt; <span class="type">Int</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the keypad southwest origin 0 indexed column</li>
+<li></li>
+<li>@param keypad</li>
+<li>
+<pre><code>       keypad number
+</code></pre>
+</li>
+<li>@return 0 for keypads 1|4|7, 1 for keypads 2|5|8, 2 for keypads 3|6|9</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.keypadrow(_:)">
+    <h3>
+        <code><a href="#garsutils.keypadrow(_:)">keypad​Row(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">keypadRow</span>(<span class="keyword">_</span> <span class="variable">keypad</span>: <span class="type">Int</span>) -&gt; <span class="type">Int</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the keypad southwest origin 0 indexed row</li>
+<li></li>
+<li>@param keypad</li>
+<li>
+<pre><code>       keypad number
+</code></pre>
+</li>
+<li>@return 0 for keypads 7|8|9, 1 for keypads 4|5|6, 2 for keypads 1|2|3</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.quadrant(_:_:)">
+    <h3>
+        <code><a href="#garsutils.quadrant(_:_:)">quadrant(_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">quadrant</span>(<span class="keyword">_</span> <span class="variable">column</span>: <span class="type">Int</span>, <span class="keyword">_</span> <span class="variable">row</span>: <span class="type">Int</span>) -&gt; <span class="type">Int</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the quadrant from the southwest origin 0 indexed column and row</li>
+<li></li>
+<li>@param column</li>
+<li>
+<pre><code>       0 indexed column
+</code></pre>
+</li>
+<li>@param row</li>
+<li>
+<pre><code>       0 indexed row
+</code></pre>
+</li>
+<li>@return quadrant</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.keypad(_:_:)">
+    <h3>
+        <code><a href="#garsutils.keypad(_:_:)">keypad(_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">keypad</span>(<span class="keyword">_</span> <span class="variable">column</span>: <span class="type">Int</span>, <span class="keyword">_</span> <span class="variable">row</span>: <span class="type">Int</span>) -&gt; <span class="type">Int</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the keypad from the southwest origin 0 indexed column and row</li>
+<li></li>
+<li>@param column</li>
+<li>
+<pre><code>       0 indexed column
+</code></pre>
+</li>
+<li>@param row</li>
+<li>
+<pre><code>       0 indexed row
+</code></pre>
+</li>
+<li>@return keypad</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.gridrange(_:)">
+    <h3>
+        <code><a href="#garsutils.gridrange(_:)">grid​Range(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">gridRange</span>(<span class="keyword">_</span> <span class="variable">bounds</span>: <a href="https://ngageoint.github.io/gars-ios/docs/api/Bounds"><span class="type">Bounds</span></a>) -&gt; <a href="https://ngageoint.github.io/gars-ios/docs/api/GridRange"><span class="type">GridRange</span></a>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get a grid range from the bounds</li>
+<li></li>
+<li>@param bounds</li>
+<li>
+<pre><code>       bounds
+</code></pre>
+</li>
+<li>@return grid range</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.bandnumberrange(_:)">
+    <h3>
+        <code><a href="#garsutils.bandnumberrange(_:)">band​Number​Range(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">bandNumberRange</span>(<span class="keyword">_</span> <span class="variable">bounds</span>: <a href="https://ngageoint.github.io/gars-ios/docs/api/Bounds"><span class="type">Bounds</span></a>) -&gt; <a href="https://ngageoint.github.io/gars-ios/docs/api/BandNumberRange"><span class="type">BandNumberRange</span></a>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get a band number range between the western and eastern bounds</li>
+<li></li>
+<li>@param bounds</li>
+<li>
+<pre><code>       bounds
+</code></pre>
+</li>
+<li>@return band number range</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.bandnumberrange(_:_:)">
+    <h3>
+        <code><a href="#garsutils.bandnumberrange(_:_:)">band​Number​Range(_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">bandNumberRange</span>(<span class="keyword">_</span> <span class="variable">west</span>: <span class="type">Double</span>, <span class="keyword">_</span> <span class="variable">east</span>: <span class="type">Double</span>) -&gt; <a href="https://ngageoint.github.io/gars-ios/docs/api/BandNumberRange"><span class="type">BandNumberRange</span></a>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get a band number range between the western and eastern longitudes</li>
+<li></li>
+<li>@param west</li>
+<li>
+<pre><code>       western longitude in degrees
+</code></pre>
+</li>
+<li>@param east</li>
+<li>
+<pre><code>       eastern longitude in degrees
+</code></pre>
+</li>
+<li>@return band number range</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.bandlettersrange(_:)">
+    <h3>
+        <code><a href="#garsutils.bandlettersrange(_:)">band​Letters​Range(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">bandLettersRange</span>(<span class="keyword">_</span> <span class="variable">bounds</span>: <a href="https://ngageoint.github.io/gars-ios/docs/api/Bounds"><span class="type">Bounds</span></a>) -&gt; <a href="https://ngageoint.github.io/gars-ios/docs/api/BandLettersRange"><span class="type">BandLettersRange</span></a>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get a band letters range between the southern and northern bounds</li>
+<li></li>
+<li>@param bounds</li>
+<li>
+<pre><code>       bounds
+</code></pre>
+</li>
+<li>@return band letters range</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.bandlettersrange(_:_:)">
+    <h3>
+        <code><a href="#garsutils.bandlettersrange(_:_:)">band​Letters​Range(_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">bandLettersRange</span>(<span class="keyword">_</span> <span class="variable">south</span>: <span class="type">Double</span>, <span class="keyword">_</span> <span class="variable">north</span>: <span class="type">Double</span>) -&gt; <a href="https://ngageoint.github.io/gars-ios/docs/api/BandLettersRange"><span class="type">BandLettersRange</span></a>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get a band letters range between the southern and northern latitudes in</li>
+<li>degrees</li>
+<li></li>
+<li>@param south</li>
+<li>
+<pre><code>       southern latitude in degrees
+</code></pre>
+</li>
+<li>@param north</li>
+<li>
+<pre><code>       northern latitude in degrees
+</code></pre>
+</li>
+<li>@return band letters range</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.degreelabel(_:_:)">
+    <h3>
+        <code><a href="#garsutils.degreelabel(_:_:)">degree​Label(_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">degreeLabel</span>(<span class="keyword">_</span> <span class="variable">longitude</span>: <span class="type">Double</span>, <span class="keyword">_</span> <span class="variable">latitude</span>: <span class="type">Double</span>) -&gt; <span class="type">String</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Create a degree grid label</li>
+<li></li>
+<li>@param longitude</li>
+<li>
+<pre><code>       longitude
+</code></pre>
+</li>
+<li>@param latitude</li>
+<li>
+<pre><code>       latitude
+</code></pre>
+</li>
+<li>@return degree label</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garsutils.nextprecision(_:_:)">
+    <h3>
+        <code><a href="#garsutils.nextprecision(_:_:)">next​Precision(_:​_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">nextPrecision</span>(<span class="keyword">_</span> <span class="variable">value</span>: <span class="type">Double</span>, <span class="keyword">_</span> <span class="variable">precision</span>: <span class="type">Double</span>) -&gt; <span class="type">Double</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Get the next precision value from the precision value and precision</li>
+<li></li>
+<li>@param value</li>
+<li>
+<pre><code>       precision value
+</code></pre>
+</li>
+<li>@param precision</li>
+<li>
+<pre><code>       grid precision
+</code></pre>
+</li>
+<li>@return next precision value</li>
+</ul>
+
+</div>
+</div>
+    </section>
+
+
+
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2022-09-06T12:27:09-0600">September 6, 2022</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
+</p>
+    </footer>
+</body>
+</html>
