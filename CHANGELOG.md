@@ -4,9 +4,9 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.0.1 (TBD)
+## [1.0.1](https://github.com/ngageoint/gars-ios/releases/tag/1.0.1) (09-08-2022)
 
-* TBD
+* podspec fix to include swift files in source files
 
 ## [1.0.0](https://github.com/ngageoint/gars-ios/releases/tag/1.0.0) (09-06-2022)
 
