@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'gars-ios/**/*.swift'
 
+  s.resource_bundle = { 'gars-ios' => ['gars-ios/**/gars*.plist'] }
   s.frameworks = 'Foundation'
 
   s.dependency 'grid-ios', '~> 1.0.0'
