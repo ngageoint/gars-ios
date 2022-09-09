@@ -17,6 +17,14 @@ Software source code previously released under an open source license and then m
 
 View the latest [Appledoc](http://ngageoint.github.io/gars-ios/docs/api/)
 
+#### Import ####
+
+```swift
+
+import gars_ios
+
+```
+
 #### Coordinates ####
 
 ```swift
