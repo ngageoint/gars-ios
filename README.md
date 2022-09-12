@@ -161,6 +161,21 @@ if zoomGrids.hasGrids() {
 
 ```
 
+#### Objective-C ####
+
+```objectivec
+
+#import "gars_ios-Swift.h"
+
+```
+
+```objectivec
+
+MKTileOverlay *tileOverlay = [[GARSTileOverlay alloc] init];
+[mapView addOverlay:tileOverlay];
+
+```
+
 ### Build ###
 
 [![Build & Test](https://github.com/ngageoint/gars-ios/workflows/Build%20&%20Test/badge.svg)](https://github.com/ngageoint/gars-ios/actions/workflows/build-test.yml)
