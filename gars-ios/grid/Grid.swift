@@ -207,7 +207,7 @@ public class Grid: BaseGrid {
      *            tile
      * @return lines
      */
-    public func lines(_ tile: GridTile) -> [GridLine]? {
+    public func lines(_ tile: GridTile) -> [GARSLine]? {
         return lines(tile.zoom, tile.bounds)
     }
     
@@ -220,8 +220,8 @@ public class Grid: BaseGrid {
      *            tile bounds
      * @return lines
      */
-    public func lines(_ zoom: Int, _ tileBounds: Bounds) -> [GridLine]? {
-        var gridLines: [GridLine]? = nil
+    public func lines(_ zoom: Int, _ tileBounds: Bounds) -> [GARSLine]? {
+        var gridLines: [GARSLine]? = nil
         if isLinesWithin(zoom) {
             gridLines = lines(tileBounds)
         }
@@ -235,9 +235,9 @@ public class Grid: BaseGrid {
      *            tile bounds
      * @return lines
      */
-    public func lines(_ tileBounds: Bounds) -> [GridLine] {
+    public func lines(_ tileBounds: Bounds) -> [GARSLine] {
         
-        var lines: [GridLine] = []
+        var lines: [GARSLine] = []
         
         let precision = precision()
 
@@ -258,10 +258,10 @@ public class Grid: BaseGrid {
                 let southeast = GridPoint(lon + precision, lat)
 
                 // Vertical line
-                lines.append(GridLine(southwest, northwest, verticalPrecision))
+                lines.append(GARSLine(southwest, northwest, verticalPrecision))
 
                 // Horizontal line
-                lines.append(GridLine(southwest, southeast, horizontalPrecision))
+                lines.append(GARSLine(southwest, southeast, horizontalPrecision))
                 
                 lat = GARSUtils.nextPrecision(lat, precision)
             }

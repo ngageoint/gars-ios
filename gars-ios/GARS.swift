@@ -246,6 +246,21 @@ public class GARS: Hashable {
     }
     
     /**
+     * Convert the coordinate to GARS
+     *
+     * @param longitude
+     *            longitude
+     * @param latitude
+     *            latitude
+     * @param unit
+     *            unit
+     * @return GARS
+     */
+    public static func from(_ longitude: Double, _ latitude: Double, _ unit: grid_ios.Unit) -> GARS {
+        return from(GridPoint(longitude, latitude, unit))
+    }
+    
+    /**
      * Parse a GARS string
      *
      * @param gars

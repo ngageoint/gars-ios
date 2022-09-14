@@ -10,7 +10,7 @@
 		04281FF62899BD7F00026382 /* gars_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04281FED2899BD7F00026382 /* gars_ios.framework */; };
 		04281FFC2899BD7F00026382 /* gars_ios.h in Headers */ = {isa = PBXBuildFile; fileRef = 04281FF02899BD7F00026382 /* gars_ios.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0428203428A28C4800026382 /* GARSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428203328A28C4800026382 /* GARSConstants.swift */; };
-		0428203728A298A600026382 /* GridLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428203628A298A600026382 /* GridLine.swift */; };
+		0428203728A298A600026382 /* GARSLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0428203628A298A600026382 /* GARSLine.swift */; };
 		04F520EC28A2BFD3004C6D8C /* GridType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F520EB28A2BFD3004C6D8C /* GridType.swift */; };
 		04F520EF28A2F015004C6D8C /* GARSProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F520EE28A2F015004C6D8C /* GARSProperties.swift */; };
 		04F520F128A2F4FA004C6D8C /* gars.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F520F028A2F4FA004C6D8C /* gars.plist */; };
@@ -54,7 +54,7 @@
 		04281FF02899BD7F00026382 /* gars_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gars_ios.h; sourceTree = "<group>"; };
 		04281FF52899BD7F00026382 /* gars-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "gars-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0428203328A28C4800026382 /* GARSConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GARSConstants.swift; sourceTree = "<group>"; };
-		0428203628A298A600026382 /* GridLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLine.swift; sourceTree = "<group>"; };
+		0428203628A298A600026382 /* GARSLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GARSLine.swift; sourceTree = "<group>"; };
 		04F520EB28A2BFD3004C6D8C /* GridType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridType.swift; sourceTree = "<group>"; };
 		04F520EE28A2F015004C6D8C /* GARSProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GARSProperties.swift; sourceTree = "<group>"; };
 		04F520F028A2F4FA004C6D8C /* gars.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = gars.plist; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 		0428203528A2988F00026382 /* features */ = {
 			isa = PBXGroup;
 			children = (
-				0428203628A298A600026382 /* GridLine.swift */,
+				0428203628A298A600026382 /* GARSLine.swift */,
 			);
 			path = features;
 			sourceTree = "<group>";
@@ -518,7 +518,7 @@
 				04F520F928A3EE12004C6D8C /* GridRange.swift in Sources */,
 				04F520F728A3CB72004C6D8C /* BandLettersRange.swift in Sources */,
 				04F5211328AAD9EB004C6D8C /* GARSTileOverlay.swift in Sources */,
-				0428203728A298A600026382 /* GridLine.swift in Sources */,
+				0428203728A298A600026382 /* GARSLine.swift in Sources */,
 				04F5210528A44F27004C6D8C /* Grids.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -3,7 +3,7 @@ platform :ios, '12.0'
 use_frameworks!
 
 target 'gars-ios' do
-  pod 'grid-ios', '~> 1.0.1'
+  pod 'grid-ios', '~> 1.0.2'
 
   target 'gars-iosTests' do
     inherit! :complete

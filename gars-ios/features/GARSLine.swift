@@ -1,5 +1,5 @@
 //
-//  GridLine.swift
+//  GARSLine.swift
 //  gars-ios
 //
 //  Created by Brian Osborn on 8/9/22.
@@ -11,8 +11,7 @@ import grid_ios
 /**
  * Line between two points
  */
-@objc(GARSGridLine)
-public class GridLine: Line {
+public class GARSLine: Line {
     
     /**
      * Grid type the line represents if any
@@ -75,7 +74,7 @@ public class GridLine: Line {
      * @param gridLine
      *            line to copy
      */
-    public convenience init(_ gridLine: GridLine) {
+    public convenience init(_ gridLine: GARSLine) {
         self.init(gridLine, gridLine.gridType)
     }
     
@@ -89,7 +88,7 @@ public class GridLine: Line {
     }
     
     public override func mutableCopy(with zone: NSZone? = nil) -> Any {
-        return GridLine(self)
+        return GARSLine(self)
     }
     
     public override func encode(with coder: NSCoder) {
@@ -106,7 +105,7 @@ public class GridLine: Line {
         super.init(coder: coder)
     }
     
-    public func isEqual(_ gridLine: GridLine?) -> Bool {
+    public func isEqual(_ gridLine: GARSLine?) -> Bool {
         if self == gridLine {
             return true
         }
@@ -121,11 +120,11 @@ public class GridLine: Line {
     
     public override func isEqual(_ object: Any?) -> Bool {
         
-        if !(object is GridLine) {
+        if !(object is GARSLine) {
             return false
         }
         
-        return isEqual(object as? GridLine)
+        return isEqual(object as? GARSLine)
     }
 
     public override var hash: Int {

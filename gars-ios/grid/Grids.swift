@@ -968,7 +968,7 @@ public class Grids: BaseGrids {
      * @param grid   grid
      * @param context graphics context
      */
-    public static func drawLines(_ lines: [GridLine], _ tile: GridTile, _ grid: Grid, _ context: CGContext) {
+    public static func drawLines(_ lines: [GARSLine], _ tile: GridTile, _ grid: Grid, _ context: CGContext) {
         
         for line in lines {
 
