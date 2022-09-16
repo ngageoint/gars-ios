@@ -7,12 +7,12 @@ Adheres to [Semantic Versioning](http://semver.org/).
 ## 1.1.1 (TBD)
 
 * grid-ios 1.0.3
-* GARS and GARSTileOverlay shortcut methods for improved objective c compatibility
+* GARS and GARSTileOverlay shortcut methods for improved objective-c compatibility
 
 ## [1.1.0](https://github.com/ngageoint/gars-ios/releases/tag/1.1.0) (09-14-2022)
 
 * grid-ios 1.0.2
-* GridLine renamed to GARSLine to prevent objective c conflicting class usage with MGRS
+* GridLine renamed to GARSLine to prevent objective-c conflicting class usage with MGRS
 * Additional GARS from coordinate method
 
 ## [1.0.2](https://github.com/ngageoint/gars-ios/releases/tag/1.0.2) (09-12-2022)
