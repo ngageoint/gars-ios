@@ -6,7 +6,8 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ## 1.1.1 (TBD)
 
-* TBD
+* grid-ios 1.0.3
+* GARS and GARSTileOverlay shortcut methods for improved objective c compatibility
 
 ## [1.1.0](https://github.com/ngageoint/gars-ios/releases/tag/1.1.0) (09-14-2022)
 

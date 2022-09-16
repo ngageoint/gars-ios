@@ -7,6 +7,7 @@
 
 import Foundation
 import grid_ios
+import MapKit
 
 /**
  * Global Area Reference System Coordinate
@@ -136,6 +137,15 @@ public class GARS: Hashable {
         return GridPoint(lon, lat)
     }
     
+    /**
+     * Convert to a location coordinate
+     *
+     * @return coordinate
+     */
+    public func toCoordinate() -> CLLocationCoordinate2D {
+        return toPoint().toCoordinate()
+    }
+    
     public var description: String {
         return coordinate()
     }
@@ -193,7 +203,7 @@ public class GARS: Hashable {
     }
     
     /**
-     * Encodes a point as a GARS string
+     * Encodes a point as a GARS
      *
      * @param point
      *            point
@@ -202,6 +212,17 @@ public class GARS: Hashable {
     public static func from(_ point: GridPoint) -> GARS {
         let pointDegrees = point.toDegrees()
         return from(pointDegrees.longitude, pointDegrees.latitude)
+    }
+    
+    /**
+     * Encodes a coordinate as a GARS
+     *
+     * @param coordinate
+     *            coordinate
+     * @return GARS
+     */
+    public static func from(_ coordinate: CLLocationCoordinate2D) -> GARS {
+        return from(coordinate.longitude, coordinate.latitude)
     }
     
     /**
@@ -310,6 +331,129 @@ public class GARS: Hashable {
         }
 
         return GARS(longitude, latitude, quadrant, keypad)
+    }
+    
+    /**
+     * Parse a GARS string into a location coordinate
+     *
+     * @param gars
+     *            GARS string
+     * @return coordinate
+     */
+    public static func parseToCoordinate(_ gars: String) -> CLLocationCoordinate2D {
+        var coordinate = kCLLocationCoordinate2DInvalid
+        if isGARS(gars) {
+            coordinate = parse(gars).toCoordinate()
+        }
+        return coordinate
+    }
+    
+    /**
+     * Encodes a point as a GARS coordinate with five minute precision
+     *
+     * @param point
+     *            point
+     * @return GARS coordinate
+     */
+    public static func coordinate(_ point: GridPoint) -> String {
+        return from(point).coordinate()
+    }
+    
+    /**
+     * Encodes a point as a GARS coordinate with specified grid precision
+     *
+     * @param point
+     *            point
+     * @param type
+     *            grid type precision
+     * @return GARS coordinate
+     */
+    public static func coordinate(_ point: GridPoint, _ type: GridType?) -> String {
+        return from(point).coordinate(type)
+    }
+    
+    /**
+     * Encodes a coordinate as a GARS coordinate with five minute precision
+     *
+     * @param coordinate
+     *            coordinate
+     * @return GARS coordinate
+     */
+    public static func coordinate(_ coordinate: CLLocationCoordinate2D) -> String {
+        return from(coordinate).coordinate()
+    }
+    
+    /**
+     * Encodes a coordinate as a GARS coordinate with specified grid precision
+     *
+     * @param coordinate
+     *            coordinate
+     * @param type
+     *            grid type precision
+     * @return GARS coordinate
+     */
+    public static func coordinate(_ coordinate: CLLocationCoordinate2D, _ type: GridType?) -> String {
+        return from(coordinate).coordinate(type)
+    }
+    
+    /**
+     * Encodes a coordinate in degrees as a GARS coordinate with five minute precision
+     *
+     * @param longitude
+     *            longitude
+     * @param latitude
+     *            latitude
+     * @return GARS coordinate
+     */
+    public static func coordinate(_ longitude: Double, _ latitude: Double) -> String {
+        return from(longitude, latitude).coordinate()
+    }
+    
+    /**
+     * Encodes a coordinate in degrees as a GARS coordinate with specified grid precision
+     *
+     * @param longitude
+     *            longitude
+     * @param latitude
+     *            latitude
+     * @param type
+     *            grid type precision
+     * @return GARS coordinate
+     */
+    public static func coordinate(_ longitude: Double, _ latitude: Double, _ type: GridType?) -> String {
+        return from(longitude, latitude).coordinate(type)
+    }
+    
+    /**
+     * Encodes a coordinate in the unit as a GARS coordinate with five minute precision
+     *
+     * @param longitude
+     *            longitude
+     * @param latitude
+     *            latitude
+     * @param unit
+     *            unit
+     * @return GARS coordinate
+     */
+    public static func coordinate(_ longitude: Double, _ latitude: Double, _ unit: grid_ios.Unit) -> String {
+        return from(longitude, latitude, unit).coordinate()
+    }
+    
+    /**
+     * Encodes a coordinate in the unit as a GARS coordinate with specified grid precision
+     *
+     * @param longitude
+     *            longitude
+     * @param latitude
+     *            latitude
+     * @param unit
+     *            unit
+     * @param type
+     *            grid type precision
+     * @return GARS coordinate
+     */
+    public static func coordinate(_ longitude: Double, _ latitude: Double, _ unit: grid_ios.Unit, _ type: GridType?) -> String {
+        return from(longitude, latitude, unit).coordinate(type)
     }
     
     /**

@@ -252,7 +252,7 @@ public class GARSTileOverlay: MKTileOverlay {
      * @return GARS
      */
     public func gars(_ coordinate: CLLocationCoordinate2D) -> GARS {
-        return GARS.from(TileUtils.toGridPoint(coordinate))
+        return GARS.from(coordinate)
     }
     
     /**
@@ -263,6 +263,28 @@ public class GARSTileOverlay: MKTileOverlay {
      */
     public func gars(_ point: MKMapPoint) -> GARS {
         return gars(TileUtils.toCoordinate(point))
+    }
+    
+    /**
+     * Parse a GARS string
+     *
+     * @param gars
+     *            GARS string
+     * @return GARS
+     */
+    public static func parse(_ gars: String) -> GARS {
+        return GARS.parse(gars)
+    }
+
+    /**
+     * Parse a GARS string into a location coordinate
+     *
+     * @param gars
+     *            GARS string
+     * @return coordinate
+     */
+    public static func parseToCoordinate(_ gars: String) -> CLLocationCoordinate2D {
+        return GARS.parseToCoordinate(gars)
     }
 
     /**
