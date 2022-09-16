@@ -1,6 +1,6 @@
 swift doc generate \
   gars-ios/ \
-  --module-name gars-ios\ 1.1.0 \
+  --module-name gars-ios\ 1.1.1 \
   --output docs/docs/api/ Pods/grid-ios/grid-ios \
   --format html \
   --base-url https://ngageoint.github.io/gars-ios/docs/api/

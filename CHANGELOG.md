@@ -4,7 +4,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.1.1 (TBD)
+## [1.1.1](https://github.com/ngageoint/gars-ios/releases/tag/1.1.1) (09-16-2022)
 
 * grid-ios 1.0.3
 * GARSTileOverlay user initiated quality of service threading (changed from default)

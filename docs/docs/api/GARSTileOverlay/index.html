@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gars-ios 1.1.0 - GARSTileOverlay</title>
+    <title>gars-ios 1.1.1 - GARSTileOverlay</title>
     <link rel="stylesheet" type="text/css" href="https://ngageoint.github.io/gars-ios/docs/api/all.css" media="all" />
 </head>
 <body>
     <header>
         <a href="https://ngageoint.github.io/gars-ios/docs/api/">
             <strong>
-                gars-ios 1.1.0
+                gars-ios 1.1.1
             </strong>
             <span>Documentation</span>
         </a>
@@ -25,7 +25,7 @@
     <nav>
         <div class="wrapper">
             <h2>On This Page</h2>
-            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#garstileoverlay.init()">init()</a></li><li class="initializer"><a href="#garstileoverlay.init(_:)">init(_:​)</a></li><li class="initializer"><a href="#garstileoverlay.init(_:)">init(_:​)</a></li><li class="initializer"><a href="#garstileoverlay.init(_:)">init(_:​)</a></li><li class="initializer"><a href="#garstileoverlay.init(_:_:)">init(_:​_:​)</a></li><li class="initializer"><a href="#garstileoverlay.init(_:_:)">init(_:​_:​)</a></li><li class="initializer"><a href="#garstileoverlay.init(_:_:)">init(_:​_:​)</a></li><li class="initializer"><a href="#garstileoverlay.init(_:_:_:)">init(_:​_:​_:​)</a></li><li class="initializer"><a href="#garstileoverlay.init(_:_:_:)">init(_:​_:​_:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#garstileoverlay.tilewidth">tile​Width</a></li><li class="variable"><a href="#garstileoverlay.tileheight">tile​Height</a></li><li class="variable"><a href="#garstileoverlay.grids">grids</a></li></ul></li><li><a href="#methods">Methods</a><ul><li class="function"><a href="#garstileoverlay.url(fortilepath:)">url(for​Tile​Path:​)</a></li><li class="function"><a href="#garstileoverlay.loadtile(at:result:)">load​Tile(at:​result:​)</a></li><li class="function"><a href="#garstileoverlay.grid(_:)">grid(_:​)</a></li><li class="function"><a href="#garstileoverlay.coordinate(_:)">coordinate(_:​)</a></li><li class="function"><a href="#garstileoverlay.coordinate(_:)">coordinate(_:​)</a></li><li class="function"><a href="#garstileoverlay.coordinate(_:_:)">coordinate(_:​_:​)</a></li><li class="function"><a href="#garstileoverlay.coordinate(_:_:)">coordinate(_:​_:​)</a></li><li class="function"><a href="#garstileoverlay.coordinate(_:_:)">coordinate(_:​_:​)</a></li><li class="function"><a href="#garstileoverlay.coordinate(_:_:)">coordinate(_:​_:​)</a></li><li class="function"><a href="#garstileoverlay.gars(_:)">gars(_:​)</a></li><li class="function"><a href="#garstileoverlay.gars(_:)">gars(_:​)</a></li><li class="function"><a href="#garstileoverlay.precision(_:)">precision(_:​)</a></li><li class="function"><a href="#garstileoverlay.tile(_:_:_:)">tile(_:​_:​_:​)</a></li><li class="function"><a href="#garstileoverlay.drawtile(_:_:_:)">draw​Tile(_:​_:​_:​)</a></li></ul></li></ol>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#garstileoverlay.init()">init()</a></li><li class="initializer"><a href="#garstileoverlay.init(_:)">init(_:​)</a></li><li class="initializer"><a href="#garstileoverlay.init(_:)">init(_:​)</a></li><li class="initializer"><a href="#garstileoverlay.init(_:)">init(_:​)</a></li><li class="initializer"><a href="#garstileoverlay.init(_:_:)">init(_:​_:​)</a></li><li class="initializer"><a href="#garstileoverlay.init(_:_:)">init(_:​_:​)</a></li><li class="initializer"><a href="#garstileoverlay.init(_:_:)">init(_:​_:​)</a></li><li class="initializer"><a href="#garstileoverlay.init(_:_:_:)">init(_:​_:​_:​)</a></li><li class="initializer"><a href="#garstileoverlay.init(_:_:_:)">init(_:​_:​_:​)</a></li></ul></li><li><a href="#properties">Properties</a><ul><li class="variable"><a href="#garstileoverlay.tilewidth">tile​Width</a></li><li class="variable"><a href="#garstileoverlay.tileheight">tile​Height</a></li><li class="variable"><a href="#garstileoverlay.grids">grids</a></li></ul></li><li><a href="#methods">Methods</a><ul><li class="function"><a href="#garstileoverlay.url(fortilepath:)">url(for​Tile​Path:​)</a></li><li class="function"><a href="#garstileoverlay.loadtile(at:result:)">load​Tile(at:​result:​)</a></li><li class="function"><a href="#garstileoverlay.grid(_:)">grid(_:​)</a></li><li class="function"><a href="#garstileoverlay.coordinate(_:)">coordinate(_:​)</a></li><li class="function"><a href="#garstileoverlay.coordinate(_:)">coordinate(_:​)</a></li><li class="function"><a href="#garstileoverlay.coordinate(_:_:)">coordinate(_:​_:​)</a></li><li class="function"><a href="#garstileoverlay.coordinate(_:_:)">coordinate(_:​_:​)</a></li><li class="function"><a href="#garstileoverlay.coordinate(_:_:)">coordinate(_:​_:​)</a></li><li class="function"><a href="#garstileoverlay.coordinate(_:_:)">coordinate(_:​_:​)</a></li><li class="function"><a href="#garstileoverlay.gars(_:)">gars(_:​)</a></li><li class="function"><a href="#garstileoverlay.gars(_:)">gars(_:​)</a></li><li class="function"><a href="#garstileoverlay.parse(_:)">parse(_:​)</a></li><li class="function"><a href="#garstileoverlay.parsetocoordinate(_:)">parse​ToCoordinate(_:​)</a></li><li class="function"><a href="#garstileoverlay.precision(_:)">precision(_:​)</a></li><li class="function"><a href="#garstileoverlay.tile(_:_:_:)">tile(_:​_:​_:​)</a></li><li class="function"><a href="#garstileoverlay.drawtile(_:_:_:)">draw​Tile(_:​_:​_:​)</a></li></ul></li></ol>
         </div>
     </nav>
 
@@ -473,6 +473,48 @@
 
 </div>
 </div>
+<div role="article" class="function" id="garstileoverlay.parse(_:)">
+    <h3>
+        <code><a href="#garstileoverlay.parse(_:)">parse(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">parse</span>(<span class="keyword">_</span> <span class="variable">gars</span>: <span class="type">String</span>) -&gt; <a href="https://ngageoint.github.io/gars-ios/docs/api/GARS"><span class="type">GARS</span></a>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Parse a GARS string</li>
+<li></li>
+<li>@param gars</li>
+<li>
+<pre><code>       GARS string
+</code></pre>
+</li>
+<li>@return GARS</li>
+</ul>
+
+</div>
+</div>
+<div role="article" class="function" id="garstileoverlay.parsetocoordinate(_:)">
+    <h3>
+        <code><a href="#garstileoverlay.parsetocoordinate(_:)">parse​ToCoordinate(_:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">parseToCoordinate</span>(<span class="keyword">_</span> <span class="variable">gars</span>: <span class="type">String</span>) -&gt; <span class="type">CLLocationCoordinate2D</span>  </body></html></code></pre>
+</div>
+<div class="discussion">
+    <ul>
+<li>Parse a GARS string into a location coordinate</li>
+<li></li>
+<li>@param gars</li>
+<li>
+<pre><code>       GARS string
+</code></pre>
+</li>
+<li>@return coordinate</li>
+</ul>
+
+</div>
+</div>
 <div role="article" class="function" id="garstileoverlay.precision(_:)">
     <h3>
         <code><a href="#garstileoverlay.precision(_:)">precision(_:​)</a></code>
@@ -537,7 +579,7 @@
 
     <footer>
         <p>
-    Generated on <time datetime="2022-09-14T07:43:49-0600">September 14, 2022</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
+    Generated on <time datetime="2022-09-16T12:18:05-0600">September 16, 2022</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
 </p>
     </footer>
 </body>
