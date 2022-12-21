@@ -7,6 +7,7 @@
 
 import Foundation
 import grid_ios
+import sf_ios
 import MapKit
 
 /**
@@ -210,34 +211,21 @@ public class GARS: Hashable {
      * @return GARS
      */
     public static func from(_ point: GridPoint) -> GARS {
-        let pointDegrees = point.toDegrees()
-        return from(pointDegrees.longitude, pointDegrees.latitude)
-    }
-    
-    /**
-     * Encodes a coordinate as a GARS
-     *
-     * @param coordinate
-     *            coordinate
-     * @return GARS
-     */
-    public static func from(_ coordinate: CLLocationCoordinate2D) -> GARS {
-        return from(coordinate.longitude, coordinate.latitude)
-    }
-    
-    /**
-     * Convert the coordinate to GARS
-     *
-     * @param longitude
-     *            longitude
-     * @param latitude
-     *            latitude
-     * @return GARS
-     */
-    public static func from(_ longitude: Double, _ latitude: Double) -> GARS {
-    
-        let lon = GARSUtils.longitudeDecimalBand(longitude)
-        let lat = GARSUtils.latitudeDecimalBandValue(latitude)
+        
+        let pointDegrees = (point.mutableCopy() as! GridPoint).toDegrees()
+        
+        // Bound the latitude if needed
+        if pointDegrees.latitude < GARSConstants.MIN_LAT {
+            pointDegrees.latitude = GARSConstants.MIN_LAT
+        } else if pointDegrees.latitude > GARSConstants.MAX_LAT {
+            pointDegrees.latitude = GARSConstants.MAX_LAT
+        }
+        
+        // Normalize the longitude if needed
+        SFGeometryUtils.normalizeWGS84Geometry(pointDegrees)
+        
+        let lon = GARSUtils.longitudeDecimalBand(pointDegrees.longitude)
+        let lat = GARSUtils.latitudeDecimalBandValue(pointDegrees.latitude)
 
         let lonInt = Int(lon)
         let latInt = Int(lat)
@@ -264,6 +252,30 @@ public class GARS: Hashable {
         let keypad = GARSUtils.keypad(keypadColumn, keypadRow)
 
         return GARS(lonInt, latBand, quadrant, keypad)
+    }
+    
+    /**
+     * Encodes a coordinate as a GARS
+     *
+     * @param coordinate
+     *            coordinate
+     * @return GARS
+     */
+    public static func from(_ coordinate: CLLocationCoordinate2D) -> GARS {
+        return from(coordinate.longitude, coordinate.latitude)
+    }
+    
+    /**
+     * Convert the coordinate to GARS
+     *
+     * @param longitude
+     *            longitude
+     * @param latitude
+     *            latitude
+     * @return GARS
+     */
+    public static func from(_ longitude: Double, _ latitude: Double) -> GARS {
+        return from(GridPoint(longitude, latitude))
     }
     
     /**

@@ -8,6 +8,7 @@
 import XCTest
 @testable import grid_ios
 @testable import gars_ios
+@testable import sf_ios
 
 /**
  * GARS Test
@@ -261,6 +262,99 @@ class GARSTestCase: XCTestCase {
         gars = "204LQ23"
         testCoordinate(-78.08333333, 37.41666667, gars)
         testCoordinateMeters(-8692196.905737048, 4497344.980476594, gars)
+        
+    }
+    
+    /**
+     * Test parsing point bounds
+     */
+    func testPointBounds() {
+        
+        // Max latitude tests
+        
+        var gars = "462RA49"
+        var gars2 = "462QZ26"
+        var longitude = 50.920338
+        var latitudeBelow = 89.9
+        var latitudeAbove = 100.0
+        
+        var point = GridPoint.degrees(longitude, GARSConstants.MAX_LAT)
+        XCTAssertEqual(gars, GARS.from(point).coordinate())
+        
+        point = GridPoint.degrees(longitude, latitudeBelow)
+        XCTAssertEqual(gars2, GARS.from(point).coordinate())
+        
+        point = GridPoint.degrees(longitude, latitudeAbove)
+        XCTAssertEqual(gars, GARS.from(point).coordinate())
+        
+        // Max latitude and max longitude tests
+
+        longitude += (2 * SF_WGS84_HALF_WORLD_LON_WIDTH)
+        
+        point = GridPoint.degrees(longitude, GARSConstants.MAX_LAT)
+        XCTAssertEqual(gars, GARS.from(point).coordinate())
+        
+        point = GridPoint.degrees(longitude, latitudeBelow)
+        XCTAssertEqual(gars2, GARS.from(point).coordinate())
+        
+        point = GridPoint.degrees(longitude, latitudeAbove)
+        XCTAssertEqual(gars, GARS.from(point).coordinate())
+        
+        // Max latitude and min longitude tests
+        
+        longitude -= (4 * SF_WGS84_HALF_WORLD_LON_WIDTH)
+        
+        point = GridPoint.degrees(longitude, GARSConstants.MAX_LAT)
+        XCTAssertEqual(gars, GARS.from(point).coordinate())
+        
+        point = GridPoint.degrees(longitude, latitudeBelow)
+        XCTAssertEqual(gars2, GARS.from(point).coordinate())
+        
+        point = GridPoint.degrees(longitude, latitudeAbove)
+        XCTAssertEqual(gars, GARS.from(point).coordinate())
+        
+        // Min latitude tests
+        
+        gars = "617AA49"
+        gars2 = "617AB49"
+        longitude = 128.4525
+        latitudeAbove = -89.5
+        latitudeBelow = -100.0
+        
+        point = GridPoint.degrees(longitude, GARSConstants.MIN_LAT)
+        XCTAssertEqual(gars, GARS.from(point).coordinate())
+        
+        point = GridPoint.degrees(longitude, latitudeAbove)
+        XCTAssertEqual(gars2, GARS.from(point).coordinate())
+        
+        point = GridPoint.degrees(longitude, latitudeBelow)
+        XCTAssertEqual(gars, GARS.from(point).coordinate())
+        
+        // Max latitude and max longitude tests
+
+        longitude += (2 * SF_WGS84_HALF_WORLD_LON_WIDTH)
+        
+        point = GridPoint.degrees(longitude, GARSConstants.MIN_LAT)
+        XCTAssertEqual(gars, GARS.from(point).coordinate())
+        
+        point = GridPoint.degrees(longitude, latitudeAbove)
+        XCTAssertEqual(gars2, GARS.from(point).coordinate())
+        
+        point = GridPoint.degrees(longitude, latitudeBelow)
+        XCTAssertEqual(gars, GARS.from(point).coordinate())
+        
+        // Max latitude and min longitude tests
+        
+        longitude -= (4 * SF_WGS84_HALF_WORLD_LON_WIDTH)
+        
+        point = GridPoint.degrees(longitude, GARSConstants.MIN_LAT)
+        XCTAssertEqual(gars, GARS.from(point).coordinate())
+        
+        point = GridPoint.degrees(longitude, latitudeAbove)
+        XCTAssertEqual(gars2, GARS.from(point).coordinate())
+        
+        point = GridPoint.degrees(longitude, latitudeBelow)
+        XCTAssertEqual(gars, GARS.from(point).coordinate())
         
     }
     
