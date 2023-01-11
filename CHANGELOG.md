@@ -4,8 +4,9 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ---
 
-## 1.1.2 (TBD)
+## [1.1.2](https://github.com/ngageoint/gars-ios/releases/tag/1.1.2) (01-11-2023)
 
+* grid-ios 1.0.4
 * Point to GARS conversion latitude min/max bounding and longitude normalization
 
 ## [1.1.1](https://github.com/ngageoint/gars-ios/releases/tag/1.1.1) (09-16-2022)

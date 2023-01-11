@@ -190,7 +190,7 @@ Open gars-ios.xcworkspace in Xcode or build from command line:
 
 Run tests from Xcode or from command line:
 
-    xcodebuild test -workspace 'gars-ios.xcworkspace' -scheme gars-ios -destination 'platform=iOS Simulator,name=iPhone 12'
+    xcodebuild test -workspace 'gars-ios.xcworkspace' -scheme gars-ios -destination 'platform=iOS Simulator,name=iPhone 14'
 
 ### Include Library ###
 
@@ -198,12 +198,12 @@ Include this repository by specifying it in a Podfile using a supported option.
 
 Pull from [CocoaPods](https://cocoapods.org/pods/gars-ios):
 
-    pod 'gars-ios', '~> 1.1.1'
+    pod 'gars-ios', '~> 1.1.2'
 
 Pull from GitHub:
 
     pod 'gars-ios', :git => 'https://github.com/ngageoint/gars-ios.git', :branch => 'master'
-    pod 'gars-ios', :git => 'https://github.com/ngageoint/gars-ios.git', :tag => '1.1.1'
+    pod 'gars-ios', :git => 'https://github.com/ngageoint/gars-ios.git', :tag => '1.1.2'
 
 Include as local project:
 
