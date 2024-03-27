@@ -6,7 +6,7 @@ Adheres to [Semantic Versioning](http://semver.org/).
 
 ## 1.1.5 (TBD)
 
-* TBD
+* grid-ios 1.0.7
 
 ## [1.1.4](https://github.com/ngageoint/gars-ios/releases/tag/1.1.4) (11-09-2023)
 
