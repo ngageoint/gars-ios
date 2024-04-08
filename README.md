@@ -198,12 +198,12 @@ Include this repository by specifying it in a Podfile using a supported option.
 
 Pull from [CocoaPods](https://cocoapods.org/pods/gars-ios):
 
-    pod 'gars-ios', '~> 1.1.4'
+    pod 'gars-ios', '~> 1.1.5'
 
 Pull from GitHub:
 
     pod 'gars-ios', :git => 'https://github.com/ngageoint/gars-ios.git', :branch => 'master'
-    pod 'gars-ios', :git => 'https://github.com/ngageoint/gars-ios.git', :tag => '1.1.4'
+    pod 'gars-ios', :git => 'https://github.com/ngageoint/gars-ios.git', :tag => '1.1.5'
 
 Include as local project:
 
