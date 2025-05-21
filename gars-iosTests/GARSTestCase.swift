@@ -6,9 +6,9 @@
 //
 
 import XCTest
-@testable import grid_ios
-@testable import gars_ios
-@testable import sf_ios
+@testable import Grid
+@testable import GARS
+@testable import SimpleFeatures
 
 /**
  * GARS Test
