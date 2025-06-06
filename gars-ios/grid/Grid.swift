@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import grid_ios
-import color_ios
+import Grid
+import Color
 
 /**
  * Grid

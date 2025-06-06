@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import grid_ios
+import Grid
 
 /**
  * Global Area Reference System Constants

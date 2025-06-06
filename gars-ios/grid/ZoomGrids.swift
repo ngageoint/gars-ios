@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import grid_ios
+import Grid
 
 /**
  * Zoom Level Matching Grids

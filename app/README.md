@@ -10,6 +10,6 @@ The GARS App is written in SwiftUI and provides a Global Area Reference System m
 
 [Build](https://github.com/ngageoint/gars-ios#build) this repository
 
-Open `gars-ios.xcworkspace` in Xcode
+Open `GARS-Demo` in Xcode
 
 Start the `app` scheme

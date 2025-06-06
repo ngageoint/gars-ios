@@ -6,17 +6,12 @@
 //
 
 import Foundation
-import grid_ios
+import Grid
 
 /**
  * GARS property loader
  */
 public class GARSProperties: GridProperties {
-    
-    /**
-     * Bundle Name
-     */
-    public static let BUNDLE_NAME = "gars-ios.bundle"
     
     /**
      * Properties Name
@@ -26,7 +21,16 @@ public class GARSProperties: GridProperties {
     /**
      * Singleton instance
      */
-    private static let _instance = GARSProperties(GARSProperties.self, BUNDLE_NAME, PROPERTIES_NAME)
+    private static let _instance: GARSProperties = {
+        guard let url = Bundle.module.url(forResource: PROPERTIES_NAME, withExtension: PropertyConstants.PROPERTY_LIST_TYPE) else {
+            fatalError("Unable to find required resource: \(PROPERTIES_NAME).\(PropertyConstants.PROPERTY_LIST_TYPE)")
+        }
+
+        guard let data = try? Data(contentsOf: url) else {
+            fatalError("Unable to load required resource: \(url)")
+        }
+        return GARSProperties(data)
+    }()
     
     public static var instance: GARSProperties {
         get {

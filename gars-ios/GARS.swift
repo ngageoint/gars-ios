@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import grid_ios
-import sf_ios
+import Grid
+import SimpleFeatures
 import MapKit
 
 /**
@@ -289,7 +289,7 @@ public class GARS: Hashable {
      *            unit
      * @return GARS
      */
-    public static func from(_ longitude: Double, _ latitude: Double, _ unit: grid_ios.Unit) -> GARS {
+    public static func from(_ longitude: Double, _ latitude: Double, _ unit: GridUnit) -> GARS {
         return from(GridPoint(longitude, latitude, unit))
     }
     
@@ -447,7 +447,7 @@ public class GARS: Hashable {
      *            unit
      * @return GARS coordinate
      */
-    public static func coordinate(_ longitude: Double, _ latitude: Double, _ unit: grid_ios.Unit) -> String {
+    public static func coordinate(_ longitude: Double, _ latitude: Double, _ unit: GridUnit) -> String {
         return from(longitude, latitude, unit).coordinate()
     }
     
@@ -464,7 +464,7 @@ public class GARS: Hashable {
      *            grid type precision
      * @return GARS coordinate
      */
-    public static func coordinate(_ longitude: Double, _ latitude: Double, _ unit: grid_ios.Unit, _ type: GridType?) -> String {
+    public static func coordinate(_ longitude: Double, _ latitude: Double, _ unit: GridUnit, _ type: GridType?) -> String {
         return from(longitude, latitude, unit).coordinate(type)
     }
     

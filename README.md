@@ -21,7 +21,7 @@ View the latest [Appledoc](http://ngageoint.github.io/gars-ios/docs/api/)
 
 ```swift
 
-import gars_ios
+import GARS
 
 ```
 
@@ -165,7 +165,7 @@ if zoomGrids.hasGrids() {
 
 ```objectivec
 
-#import "gars_ios-Swift.h"
+#import "GARS-Swift.h"
 
 ```
 
@@ -178,36 +178,37 @@ MKTileOverlay *tileOverlay = [[GARSTileOverlay alloc] init];
 
 ### Build ###
 
-[![Build & Test](https://github.com/ngageoint/gars-ios/workflows/Build%20&%20Test/badge.svg)](https://github.com/ngageoint/gars-ios/actions/workflows/build-test.yml)
+[![Build](https://github.com/ngageoint/gars-ios/workflows/Build/badge.svg)](https://github.com/ngageoint/gars-ios/actions/workflows/build.yml)
 
-Build this repository using Xcode and/or CocoaPods:
+Build and Test (Uses UIKit, so we build with xcodebuild instead of SPM).
 
-    pod install
+    ./build.sh
 
-Open gars-ios.xcworkspace in Xcode or build from command line:
+You can build and test if you open the Package.swift in Xcode.
 
-    xcodebuild -workspace 'gars-ios.xcworkspace' -scheme gars-ios build
-
-Run tests from Xcode or from command line:
-
-    xcodebuild test -workspace 'gars-ios.xcworkspace' -scheme gars-ios -destination 'platform=iOS Simulator,name=iPhone 15'
 
 ### Include Library ###
 
-Include this repository by specifying it in a Podfile using a supported option.
+Use this library via SPM in your Package.swift:
 
-Pull from [CocoaPods](https://cocoapods.org/pods/gars-ios):
+    dependencies: [
+        .package(url: "https://github.com/ngageoint/gars-ios.git", branch: "release/2.0.0"),
+    ]
+    
+Or as a tagged release:
 
-    pod 'gars-ios', '~> 1.1.5'
+    dependencies: [
+        .package(url: "https://github.com/ngageoint/gars-ios.git", from: "2.0.0"),
+    ]
 
-Pull from GitHub:
+Reference it in your Package.swift target:
 
-    pod 'gars-ios', :git => 'https://github.com/ngageoint/gars-ios.git', :branch => 'master'
-    pod 'gars-ios', :git => 'https://github.com/ngageoint/gars-ios.git', :tag => '1.1.5'
-
-Include as local project:
-
-    pod 'gars-ios', :path => '../gars-ios'
+    .target(
+        name: "MyApp",
+        dependencies: [
+            .product(name: "GARS", package: "gars-ios"),
+        ],
+    ),
 
 ### Remote Dependencies ###
 

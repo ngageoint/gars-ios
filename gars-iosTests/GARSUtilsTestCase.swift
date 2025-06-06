@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import gars_ios
+@testable import GARS
 
 /**
  * GARS Utils Test
