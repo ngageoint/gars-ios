@@ -223,31 +223,36 @@ public class GARS: Hashable {
         
         // Normalize the longitude if needed
         SFGeometryUtils.normalizeWGS84Geometry(pointDegrees)
-        
-        let lon = GARSUtils.longitudeDecimalBand(pointDegrees.longitude)
-        let lat = GARSUtils.latitudeDecimalBandValue(pointDegrees.latitude)
+        var longitude = pointDegrees.longitude
+        if longitude >= GARSConstants.MAX_LON {
+            // 180 is the same meridian as -180, in band 001
+            longitude -= 360.0
+        }
 
-        let lonInt = Int(lon)
-        let latInt = Int(lat)
+        // Index of the 5 minute cell, counted from 180 W and 90 S. Multiply
+        // before adding the offset so that values on a cell boundary land in
+        // the cell they start (scaling the band fractions in steps let
+        // rounding put them in the cell below or to the left). The top row
+        // includes latitude 90. GridPoint keeps coordinates as NSDecimalNumber,
+        // which can move a value by one unit in the last place, so allow 1e-9
+        // of a cell (about 9 micrometers).
+        var lonIndex = Int((longitude * 12.0 + 1e-9).rounded(.down)) + 180 * 12
+        var latIndex = Int((pointDegrees.latitude * 12.0 + 1e-9).rounded(.down)) + 90 * 12
+        lonIndex = max(0, min(lonIndex, 360 * 12 - 1))
+        latIndex = max(0, min(latIndex, 180 * 12 - 1))
+
+        let lonInt = lonIndex / 6 + 1
+        let latInt = latIndex / 6 + 1
 
         let latBand = GARSUtils.bandLetters(latInt)
 
-        var lonDecimal = lon - Double(lonInt)
-        var latDecimal = lat - Double(latInt)
-
-        let quadrantColumn = lonDecimal * 2.0
-        let quadrantRow = latDecimal * 2.0
-
-        let quadrantColumnInt = Int(quadrantColumn)
-        let quadrantRowInt = Int(quadrantRow)
+        let quadrantColumnInt = (lonIndex % 6) / 3
+        let quadrantRowInt = (latIndex % 6) / 3
 
         let quadrant = GARSUtils.quadrant(quadrantColumnInt, quadrantRowInt)
 
-        lonDecimal = quadrantColumn - Double(quadrantColumnInt)
-        latDecimal = quadrantRow - Double(quadrantRowInt)
-
-        let keypadColumn = Int(lonDecimal * 3.0)
-        let keypadRow = Int(latDecimal * 3.0)
+        let keypadColumn = lonIndex % 3
+        let keypadRow = latIndex % 3
 
         let keypad = GARSUtils.keypad(keypadColumn, keypadRow)
 

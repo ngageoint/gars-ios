@@ -272,7 +272,9 @@ class GARSTestCase: XCTestCase {
         
         // Max latitude tests
         
-        var gars = "462RA49"
+        // Latitude 90 is in the top band, QZ (there is no band RA, and
+        // parse() stops on it)
+        var gars = "462QZ23"
         var gars2 = "462QZ26"
         var longitude = 50.920338
         var latitudeBelow = 89.9
@@ -358,6 +360,37 @@ class GARSTestCase: XCTestCase {
         
     }
     
+    /**
+     * Test points on the antimeridian, at the north pole, and on whole
+     * minute cell boundaries
+     */
+    func testCellBoundaries() {
+
+        // 180 is the same meridian as -180; latitude 90 is in the top row.
+        // These used to give 721HN37 and 361RA37, which parse() stops on.
+        XCTAssertEqual("001HN37", GARS.from(GridPoint.degrees(180, 0)).coordinate())
+        XCTAssertEqual("361QZ11", GARS.from(GridPoint.degrees(0, 90)).coordinate())
+        XCTAssertEqual("001QZ11", GARS.from(GridPoint.degrees(180, 90)).coordinate())
+        XCTAssertEqual("720QZ23", GARS.from(GridPoint.degrees(179.9999999, 89.9999999)).coordinate())
+
+        // A point on a 5 minute boundary is in the cell it starts
+        let tenFive = 10.0 + 5.0 / 60.0
+        XCTAssertEqual("381JJ35", GARS.from(GridPoint.degrees(tenFive, tenFive)).coordinate())
+        XCTAssertEqual("340GR23", GARS.from(GridPoint.degrees(-tenFive, -tenFive)).coordinate())
+
+        for i in stride(from: 0, to: 360 * 12, by: 7) {
+            for j in stride(from: 0, to: 180 * 12, by: 5) {
+                let lonMinutes = i * 5 - 180 * 60
+                let latMinutes = j * 5 - 90 * 60
+                let lon = Double(lonMinutes.signum()) * (Double(abs(lonMinutes) / 60) + Double(abs(lonMinutes) % 60) / 60.0)
+                let lat = Double(latMinutes.signum()) * (Double(abs(latMinutes) / 60) + Double(abs(latMinutes) % 60) / 60.0)
+                let southwest = GARS.from(GridPoint.degrees(lon, lat)).toPoint()
+                XCTAssertEqual(lon, southwest.longitude, accuracy: 1e-9)
+                XCTAssertEqual(lat, southwest.latitude, accuracy: 1e-9)
+            }
+        }
+    }
+
     /**
      * Test parsing 30 minute full range
      */
